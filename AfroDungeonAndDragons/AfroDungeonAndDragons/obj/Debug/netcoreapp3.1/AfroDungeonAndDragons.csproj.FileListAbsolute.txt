@@ -35,3 +35,4 @@ C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\AfroDungeonAndDragons.pdb
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\AfroDungeonAndDragons.genruntimeconfig.cache
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\AfroDungeonAndDragons.csproj.CopyComplete
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\CharacterCreator\Races.cshtml.g.cs
