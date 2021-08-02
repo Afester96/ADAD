@@ -1,0 +1,62 @@
+﻿body{
+    
+}
+
+.mainHeader {
+    position:absolute;
+    width: 100%;
+    height: 60px;
+    left: 0;
+    top: 0;
+    background-color: #090809;
+}
+
+
+.divHeader {
+    
+}
+
+.mainNavigation {
+    position: absolute;
+    top: 60px;
+    height: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #26282a;
+}
+
+.aNavigation {
+}
+
+.mainContent {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    bottom: 60px;
+    width: 100%;
+    background-color: #f5f3f1;
+}
+
+.mainFooter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #191a1b;
+}
+
+.leftSideFooter {
+    left: 0;
+    right: 50%;
+    color: #868a9c;
+    line-height: 150%;
+    background-color: #191a1b;
+    padding: 9px 0 0 20%;
+    font-size: 14px;
+}
+
+.rightSideFooter {
+    left: 50%;
+    right: 0;
+}
