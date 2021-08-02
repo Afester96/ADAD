@@ -13,7 +13,11 @@
 
 
 .divHeader {
-    
+    padding: 3px 0 0 20%;
+}
+
+.headerLogo{
+    height: 70px;
 }
 
 .mainNavigation {
@@ -25,7 +29,12 @@
     background-color: #26282a;
 }
 
+.divNavigation {
+    padding: 9px 20% 0 20%;
+}
+
 .aNavigation {
+
 }
 
 .mainContent {
@@ -35,6 +44,10 @@
     bottom: 60px;
     width: 100%;
     background-color: #f5f3f1;
+}
+
+.divContent {
+    padding: 9px 20% 0 20%;
 }
 
 .mainFooter {
@@ -47,6 +60,7 @@
 }
 
 .leftSideFooter {
+    float:left;
     left: 0;
     right: 50%;
     color: #868a9c;
@@ -57,6 +71,8 @@
 }
 
 .rightSideFooter {
-    left: 50%;
+    float: left;
+    padding: 9px 0 0 100px;
+    background-color: #191a1b;
     right: 0;
 }

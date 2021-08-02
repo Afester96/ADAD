@@ -7,35 +7,41 @@
     <link rel="stylesheet" href="~/css/style.css" />
 </head>
 <body>
-    <header class="mainHeader">
-        <div class="divHeader">
-            <img src="~/pictures/"/>
-        </div>
-        <div>
+    <div class="wrapper">
 
-        </div>
-    </header>
-    <nav class="mainNavigation">
-        <a class="aNavigation">1</a>
-        <a class="aNavigation">2</a>
-        <a class="aNavigation">3</a>
-    </nav>
-    <content class="mainContent">
-        <div class="divContent">
-            @RenderBody()
-        </div>
-    </content>
-    <footer class="mainFooter">
-        <div class="leftSideFooter">
-            2021 - AfroDungeonAndDragons<br />
-            Приятной игры всем любителям D&D!
-        </div>
-        @*<div class="rightSideFooter">
-                <a href="">Ссылка</a>
-                <a href="">Ссылка</a>
-                <a href="">Ссылка</a>
-            </div>*@
-    </footer>
+        <header class="mainHeader">
+            <div class="divHeader">
+                <img class ="headerLogo" src="~/pictures/SiteLogo.png" />
+            </div>
+            <div>
+
+            </div>
+        </header>
+        <nav class="mainNavigation">
+            <div class="divNavigation">
+                <a class="aNavigation">1</a>
+                <a class="aNavigation">2</a>
+                <a class="aNavigation">3</a>
+            </div>
+        </nav>
+        <content class="mainContent">
+            <div class="divContent">
+                @RenderBody()
+            </div>
+        </content>
+        <footer class="mainFooter">
+            <div class="leftSideFooter">
+                2021 - AfroDungeonAndDragons<br />
+                Приятной игры всем любителям D&D!
+            </div>
+            <div class="rightSideFooter">
+                    <a href="">Ссылка</a>
+                    <a href="">Ссылка</a>
+                    <a href="">Ссылка</a>
+                </div>
+        </footer>
+    </div>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
