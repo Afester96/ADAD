@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AfroDungeonAndDragons.Models.CharacterCreator;
+using Microsoft.Extensions.Configuration;
 
 namespace AfroDungeonAndDragons.Models
 {
@@ -18,9 +19,9 @@ namespace AfroDungeonAndDragons.Models
         public DbSet<CanCastSpells> CanCastSpellses { get; set; }
         public DbSet<Size> Sizes { get; set; }
         public DbSet<SpellCastingAbility> SpellCastingAbilities { get; set; }
-        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
+            : base(options)
         {
-            Database.EnsureCreated();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using AfroDungeonAndDragons.Models.CharacterCreator;
+﻿using AfroDungeonAndDragons.Models;
+using AfroDungeonAndDragons.Models.CharacterCreator;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,18 @@ namespace AfroDungeonAndDragons.Controllers
         //        new Race {Id=2, Name="Человек", Size=Size.Medium, Speed=30, ShortDescription="Человеки", Description="Описание", RacialTrait="Short and Stout", FromBook="Книга игрока"}
         //    };
         //}
+        private ApplicationContext db;
+        public CharacterCreatorController(ApplicationContext context)
+        {
+            db = context;
+        }
         public IActionResult Races()
         {
             return View();
+        }
+        public async Task<IActionResult> RacesDetails(string name)
+        {
+            Race race = await db.Races.FirstOrDefault(r => r.Name.ToLower() == name);
         }
     }
 }
