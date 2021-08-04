@@ -1,12 +1,15 @@
 ﻿@using AfroDungeonAndDragons.Models.CharacterCreator
 @model IEnumerable<Race>
-@{       
+@{
     ViewData["Title"] = "Races";
 }
 
-<table class="table">
-    @foreach (var race in Model)
-    {
-        <tr><td>@race.Name</td><td>@race.ShortDescription</td></tr>
-    }
-</table>
+@foreach (var race in Model)
+{
+    <div>
+        <p><a href="/CharacterCreator/Races/@race.Name.ToLower()">@race.Name</a></p>
+        <p>@race.FromBook</p>
+        <p>@race.ShortDescription</p>
+        <p>@race.RacialTrait</p>
+    </div>
+}

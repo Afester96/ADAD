@@ -17,6 +17,6 @@ namespace AfroDungeonAndDragons.Models.CharacterCreator
         public string ShortDescription { get; set; }
         public string Description { get; set; }
         public string RacialTrait { get; set; }
-
+        public string FromBook { get; set; }
     }
 }
