@@ -1,8 +1,8 @@
 ﻿namespace AfroDungeonAndDragons.Models.CharacterCreator
 {
-    public enum CanCastSpells
+    public class CanCastSpells
     {
-        Yes = 1,
-        No
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

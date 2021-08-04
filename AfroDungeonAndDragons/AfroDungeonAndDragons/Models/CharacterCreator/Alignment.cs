@@ -5,16 +5,10 @@ using System.Threading.Tasks;
 
 namespace AfroDungeonAndDragons.Models.CharacterCreator
 {
-    public enum Alignment
+    public class Alignment
     {
-        LG = 1,
-        NG,
-        CG,
-        LN,
-        TN,
-        CN,
-        LE,
-        NE,
-        CE
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

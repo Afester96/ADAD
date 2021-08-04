@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace AfroDungeonAndDragons.Models.CharacterCreator
 {
-    public enum Size
+    public class Size
     {
-        Tiny = 1,
-        Small,
-        Medium,
-        Large,
-        Huge
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

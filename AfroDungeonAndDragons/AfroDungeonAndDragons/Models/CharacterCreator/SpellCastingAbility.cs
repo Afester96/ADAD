@@ -1,12 +1,8 @@
 ﻿namespace AfroDungeonAndDragons.Models.CharacterCreator
 {
-    public enum SpellCastingAbility
+    public class SpellCastingAbility
     {
-        CHA = 1,
-        CON,
-        DEX,
-        INT,
-        STR,
-        WIS
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
