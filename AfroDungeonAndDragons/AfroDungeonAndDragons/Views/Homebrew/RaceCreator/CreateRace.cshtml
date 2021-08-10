@@ -1,8 +1,8 @@
 ﻿@model AfroDungeonAndDragons.Models.CharacterCreator.Race
 @{ 
-    ViewBag.Title = "Изменение расы";
+    ViewBag.Title = "Создание расы";
 }
-<form asp-action="updaterace" asp-controller="charactercreator">
+<form asp-action="CreateRace" asp-controller="RaceCreator">
     <div class="form-group">
         <label asp-for="Name" class="control-label">Название расы</label>
         <input asp-for="Name" class="form-control" type="text" />
@@ -39,6 +39,6 @@
         <input asp-for="FromBook" class="form-control" type="text" />
     </div>
     <div class="form-group">
-        <input type="submit" value="Сохранить изменения" class="btn btn-default" />
+        <input type="submit" value="Сохранить расу" class="btn btn-default" />
     </div>
 </form>

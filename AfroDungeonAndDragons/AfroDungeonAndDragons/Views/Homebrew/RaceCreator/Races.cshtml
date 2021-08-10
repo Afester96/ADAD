@@ -1,0 +1,17 @@
+﻿@using AfroDungeonAndDragons.Models.CharacterCreator
+@model IEnumerable<Race>
+@{
+    ViewData["Title"] = "Расы";
+}
+<a asp-action="createrace">Создать расу</a>
+@foreach (var race in Model)
+{
+    <div>
+        <p><a asp-action="AboutRace" asp-controller="RaceCreator" asp-route-id="@race.Id">@race.Name</a></p>
+        <p>@race.FromBook</p>
+        <p>@race.ShortDescription</p>
+        <p>@race.RacialTrait</p>
+        <a asp-action="UpdateRace" asp-controller="RaceCreator" asp-route-id="@race.Id">Изменить расу</a>
+        <a asp-action="DeleteRace" asp-controller="RaceCreator" asp-route-id="@race.Id">Удалить расу</a>
+    </div>
+}

@@ -35,7 +35,6 @@ C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\AfroDungeonAndDragons.pdb
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\AfroDungeonAndDragons.genruntimeconfig.cache
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\AfroDungeonAndDragons.csproj.CopyComplete
-C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\CharacterCreator\Races.cshtml.g.cs
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -78,8 +77,11 @@ C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\bin
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\CharacterCreator\CreateRace.cshtml.g.cs
-C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\CharacterCreator\AboutRace.cshtml.g.cs
-C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\CharacterCreator\DeleteRace.cshtml.g.cs
-C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\CharacterCreator\UpdateRace.cshtml.g.cs
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Races\Human.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Homebrew\RaceCreator\AboutRace.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Homebrew\RaceCreator\CreateRace.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Homebrew\RaceCreator\DeleteRace.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Homebrew\RaceCreator\UpdateRace.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Races\Index.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Homebrew\RaceCreator\Races.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Races\Dwarf.cshtml.g.cs

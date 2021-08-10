@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace AfroDungeonAndDragons.Controllers
 {
-    public class CharacterCreatorController : Controller
+    public class RaceCreatorController : Controller
     {
         private ApplicationContext db;
-        public CharacterCreatorController(ApplicationContext context)
+        public RaceCreatorController(ApplicationContext context)
         {
             db = context;
         }
         public async Task<IActionResult> Races()
         {
-            return View(await db.Races.ToListAsync());
+            return View("../Homebrew/RaceCreator/Races", await db.Races.ToListAsync());
         }
         public IActionResult CreateRace()
         {
-            return View();
+            return View("../Homebrew/RaceCreator/CreateRace");
         }
         [HttpPost]
         public async Task<IActionResult> CreateRace(Race race)
@@ -36,7 +36,7 @@ namespace AfroDungeonAndDragons.Controllers
             if (id != null)
             {
                 Race race = await db.Races.FirstOrDefaultAsync(r => r.Id == id);
-                return View(race);
+                return View("../Homebrew/RaceCreator/AboutRace", race);
             }
             return NotFound();
         }
@@ -48,7 +48,7 @@ namespace AfroDungeonAndDragons.Controllers
                 Race race = await db.Races.FirstOrDefaultAsync(r => r.Id == id);
                 if (race != null)
                 {
-                    return View(race);
+                    return View("../Homebrew/RaceCreator/UpdateRace", race);
                 }
             }
             return NotFound();
@@ -69,7 +69,7 @@ namespace AfroDungeonAndDragons.Controllers
                 Race race = await db.Races.FirstOrDefaultAsync(r => r.Id == id);
                 if (race != null)
                 {
-                    return View(race);
+                    return View("../Homebrew/RaceCreator/DeleteRace", race);
                 }
             }
             return NotFound();

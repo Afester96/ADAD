@@ -21,7 +21,21 @@
                 <details>
                     <summary>Игровые правила</summary>
                     <ul>
-                        <li><a asp-action="Races" asp-controller="CharacterCreator">Расы</a></li>
+                        <li>@Html.ActionLink("Расы", "Index", "Races")</li>
+                        <li><a href="">Классы</a></li>
+                        <li><a href="">Предыстории</a></li>
+                        <li><a href="">Черты</a></li>
+                        <li><a href="">Заклинания и заговоры</a></li>
+                        <li><a href="">Монстры</a></li>
+                        <li><a href="">Предметы</a></li>
+                        <li><a href="">Магические предметы</a></li>
+                        <li><a href="">Транспорт</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Домашние заготовочки</summary>
+                    <ul>
+                        <li>@Html.ActionLink("Расы", "Races", "RaceCreator")</li>
                         <li><a href="">Классы</a></li>
                         <li><a href="">Предыстории</a></li>
                         <li><a href="">Черты</a></li>
