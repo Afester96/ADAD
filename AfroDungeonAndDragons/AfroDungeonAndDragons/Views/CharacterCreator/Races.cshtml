@@ -1,15 +1,17 @@
-﻿@*@using AfroDungeonAndDragons.Models.CharacterCreator
+﻿@using AfroDungeonAndDragons.Models.CharacterCreator
 @model IEnumerable<Race>
 @{
-    ViewData["Title"] = "Races";
+    ViewData["Title"] = "Расы";
 }
-
+<a asp-action="createrace">Создать расу</a>
 @foreach (var race in Model)
 {
     <div>
-        <p><a href="/CharacterCreator/Races/@race.Name.ToLower()">@race.Name</a></p>
+        <p><a asp-action="aboutrace" asp-controller="charactercreator" asp-route-id="@race.Id">@race.Name</a></p>
         <p>@race.FromBook</p>
         <p>@race.ShortDescription</p>
         <p>@race.RacialTrait</p>
+        <a asp-action="updaterace" asp-controller="charactercreator" asp-route-id="@race.Id">Изменить расу</a>
+        <a asp-action="deleterace" asp-controller="charactercreator" asp-route-id="@race.Id">Удалить расу</a>
     </div>
-}*@
+}

@@ -78,3 +78,8 @@ C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\bin
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\CharacterCreator\CreateRace.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\CharacterCreator\AboutRace.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\CharacterCreator\DeleteRace.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\CharacterCreator\UpdateRace.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Races\Human.cshtml.g.cs

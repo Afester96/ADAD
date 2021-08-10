@@ -18,7 +18,7 @@ namespace AfroDungeonAndDragons.Models.CharacterCreator
         public string PlayerName { get; set; }
         public Race Race { get; set; }
         [Required]
-        public Alignment Alignment { get; set; }
+        public string Alignment { get; set; }
         public int EperiencePoints { get; set; }
         public int Strength { get; set; }
         public int Dexterity {get;set;}

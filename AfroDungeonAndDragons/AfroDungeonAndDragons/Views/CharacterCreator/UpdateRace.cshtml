@@ -1,0 +1,44 @@
+﻿@model AfroDungeonAndDragons.Models.CharacterCreator.Race
+@{ 
+    ViewBag.Title = "Изменение расы";
+}
+<form asp-action="updaterace" asp-controller="charactercreator">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Название расы</label>
+        <input asp-for="Name" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Size" class="control-label">Размер</label>
+        <select size="1" asp-for="Size" class="form-control">
+            <option value="Крохотное">Крохотное</option>
+            <option value="Маленькое">Маленькое</option>
+            <option value="Среднее">Среднее</option>
+            <option value="Большое">Большое</option>
+            <option value="Огромное">Огромное</option>
+            <option value="Громадное">Громадное</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Speed" class="control-label">Скорость</label>
+        <input asp-for="Speed" class="form-control" type="number" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ShortDescription" class="control-label">Короткое описание</label>
+        <input asp-for="ShortDescription" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Длинное описание</label>
+        <input asp-for="Description" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RacialTrait" class="control-label">Черты</label>
+        <input asp-for="RacialTrait" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FromBook" class="control-label">Из книги</label>
+        <input asp-for="FromBook" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Сохранить изменения" class="btn btn-default" />
+    </div>
+</form>

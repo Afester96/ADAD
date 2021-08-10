@@ -11,7 +11,7 @@ namespace AfroDungeonAndDragons.Models.CharacterCreator
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public Size Size { get; set; }
+        public string Size { get; set; }
         public int Speed { get; set; }
         [Required]
         public string ShortDescription { get; set; }

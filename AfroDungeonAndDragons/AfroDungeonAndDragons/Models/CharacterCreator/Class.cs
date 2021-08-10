@@ -15,6 +15,6 @@ namespace AfroDungeonAndDragons.Models.CharacterCreator
         public string ShortDescription { get; set; }
         public string Description { get; set; }
         public SpellCastingAbility SpellCastingAbility { get;set;}
-        public CanCastSpells CanCastSpells { get; set; }
+        public string CanCastSpells { get; set; }
     }
 }

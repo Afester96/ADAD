@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AfroDungeonAndDragons</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/style.css" />
 </head>
 <body>
@@ -21,7 +21,7 @@
                 <details>
                     <summary>Игровые правила</summary>
                     <ul>
-                        <li><a href="/CharacterCreator/Races">Расы</a></li>
+                        <li><a asp-action="Races" asp-controller="CharacterCreator">Расы</a></li>
                         <li><a href="">Классы</a></li>
                         <li><a href="">Предыстории</a></li>
                         <li><a href="">Черты</a></li>

@@ -1,0 +1,16 @@
+﻿@model AfroDungeonAndDragons.Models.CharacterCreator.Race
+
+@{ 
+    ViewBag.Title = Model.Name;
+}
+<h2>@Model.Name</h2>
+<div>
+    <p>Описание @Model.Description</p>
+    <p>Скорость @Model.Speed</p>
+    <p>Размер @Model.Size</p>
+    <p>Особенности @Model.RacialTrait</p>
+</div>
+<div>
+    <a asp-action="updaterace" asp-controller="charactercreator" asp-route-id="@Model.Id">Изменить расу</a>
+    <a asp-action="deleterace" asp-controller="charactercreator" asp-route-id="@Model.Id">Удалить расу</a>
+</div>
