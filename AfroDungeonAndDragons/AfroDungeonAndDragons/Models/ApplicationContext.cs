@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AfroDungeonAndDragons.Models.CharacterCreator;
 using Microsoft.Extensions.Configuration;
+using AfroDungeonAndDragons.Data;
 
 namespace AfroDungeonAndDragons.Models
 {
@@ -22,6 +23,11 @@ namespace AfroDungeonAndDragons.Models
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
+            //Database.EnsureCreated();
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasData(DefeaultRaceList.GetList());
         }
     }
 }

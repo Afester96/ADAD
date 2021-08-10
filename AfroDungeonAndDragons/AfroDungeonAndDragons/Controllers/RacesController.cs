@@ -9,8 +9,6 @@ namespace AfroDungeonAndDragons.Controllers
 {
     public class RacesController : Controller
     {
-        List<Race> defaultRaces;
-        
         public IActionResult Index()
         {
             return View();
