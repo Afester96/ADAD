@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Homebrew\CharacterCreator\" />
     <Folder Include="wwwroot\pictures\" />
   </ItemGroup>
 

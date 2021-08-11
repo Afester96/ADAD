@@ -22,8 +22,8 @@
                     <summary>Игровые правила</summary>
                     <ul>
                         <li>@Html.ActionLink("Расы", "AllRaces", "Races")</li>
-                        <li><a href="">Классы</a></li>
-                        <li><a href="">Предыстории</a></li>
+                        <li>@Html.ActionLink("Классы", "AllClasses", "Classes")</li>
+                        <li>@Html.ActionLink("Предыстории", "AllBackgrounds", "Backgrounds")</li>
                         <li><a href="">Черты</a></li>
                         <li><a href="">Заклинания и заговоры</a></li>
                         <li><a href="">Монстры</a></li>
@@ -35,9 +35,9 @@
                 <details>
                     <summary>Домашние заготовочки</summary>
                     <ul>
-                        <li>@Html.ActionLink("Расы", "Races", "RaceCreator")</li>
-                        <li><a href="">Классы</a></li>
-                        <li><a href="">Предыстории</a></li>
+                        <li>@Html.ActionLink("Создать расу", "Races", "RaceCreator")</li>
+                        <li>@Html.ActionLink("Создать класс", "Classes", "ClassCreator")</li>
+                        <li>@Html.ActionLink("Создать предысторию", "Backgrounds", "BackgroundCreator")</li>
                         <li><a href="">Черты</a></li>
                         <li><a href="">Заклинания и заговоры</a></li>
                         <li><a href="">Монстры</a></li>

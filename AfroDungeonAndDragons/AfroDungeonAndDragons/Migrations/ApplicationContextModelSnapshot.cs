@@ -229,6 +229,81 @@ namespace AfroDungeonAndDragons.Migrations
                     b.ToTable("Races");
                 });
 
+            modelBuilder.Entity("AfroDungeonAndDragons.Models.DefaultInformation.DefaultBackground", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BackgroundSpecialty")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BackgroundVariant")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EquipmentDescriptions")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FeatureDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FeatureName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Introduction")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SkillProficienciesDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SpellListExtendedDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SpellListIntroductionDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SuggestedCharcteristicsDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ToolProficienciesDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DefaultBackgrounds");
+                });
+
+            modelBuilder.Entity("AfroDungeonAndDragons.Models.DefaultInformation.DefaultClass", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CanCastSpells")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShortDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SpellCastingAbility")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DefaultClasses");
+                });
+
             modelBuilder.Entity("AfroDungeonAndDragons.Models.DefaultInformation.DefaultRace", b =>
                 {
                     b.Property<int>("Id")

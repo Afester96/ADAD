@@ -19,6 +19,8 @@ namespace AfroDungeonAndDragons.Models
         public DbSet<Class> Classes { get; set; }
         public DbSet<Race> Races { get; set; }
         public DbSet<DefaultRace> DefaultRaces { get; set; }
+        public DbSet<DefaultClass> DefaultClasses { get; set; }
+        public DbSet<DefaultBackground> DefaultBackgrounds { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
@@ -27,8 +29,8 @@ namespace AfroDungeonAndDragons.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DefaultRace>().HasData(DefaultRaceList.GetRaceList());
-            modelBuilder.Entity<Class>().HasData(DefaultClassList.GetClassList());
-            modelBuilder.Entity<Background>().HasData(DefaultBackgroundList.GetBackgroundList());
+            modelBuilder.Entity<DefaultClass>().HasData(DefaultClassList.GetClassList());
+            modelBuilder.Entity<DefaultBackground>().HasData(DefaultBackgroundList.GetBackgroundList());
         }
     }
 }
