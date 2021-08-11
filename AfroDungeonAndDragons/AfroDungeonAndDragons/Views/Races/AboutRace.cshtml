@@ -1,0 +1,47 @@
+﻿@model AfroDungeonAndDragons.Models.DefaultInformation.DefaultRace
+@{ 
+    ViewBag.Title = Model.Name;
+}
+<h2>@Model.Name</h2>
+<h4>@Model.FromBook</h4>
+<div>
+    <p>@Model.ShortDescription</p>
+</div>
+<div>
+    <p>@Html.Raw(Model.LitratureDescription)</p>
+</div>
+<div>
+    <p><h3><b>@Model.FirstTitle</b></h3></p>
+    <p>@Model.FirstParagraph</p>
+</div>
+<div>
+    <p><h3><b>@Model.SecondTitle</b></h3></p>
+    <p>@Model.SecondParagraph</p>
+</div>
+<div>
+    <p><h3><b>@Model.ThirdTitle</b></h3></p>
+    <p>@Model.ThirdParagraph</p>
+</div>
+<div>
+    <p><h3><b>@Model.FourthTitle</b></h3></p>
+    <p>@Model.FourthParagraph</p>
+</div>
+<div>
+    <p><h3><b>@Model.FifthTitle</b></h3></p>
+    <p>@Model.FifthParagraph</p>
+</div>
+<div>
+    <p>@Html.Raw(Model.Names)</p>
+</div>
+<div>
+    <p><h3><b>Особенности расы</b></h3></p>
+    <p>@Html.Raw(Model.RacialTrait)</p>
+</div>
+<div>
+    <p><h3><b>@Model.FirstSubraceTitle</b></h3></p>
+    <p>@Model.FirstSubraceDescription</p>
+</div>
+<div>
+    <p><h3><b>@Model.SecondSubraceTitle</b></h3></p>
+    <p>@Model.SecondSubraceDescription</p>
+</div>

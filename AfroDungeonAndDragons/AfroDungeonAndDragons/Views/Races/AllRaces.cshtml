@@ -1,0 +1,13 @@
+﻿@using AfroDungeonAndDragons.Models.DefaultInformation
+@model IEnumerable<DefaultRace>
+@{
+    ViewBag.Title = "Список рас";
+}
+@foreach (var race in Model)
+{
+    <div>
+        <p><h3><b><a asp-action="AboutRace" asp-controller="Races" asp-route-id="@race.Id">@race.Name</a></b></h3></p>
+        <p>@race.FromBook</p>
+        <p>@race.ShortDescription</p>
+    </div>
+}

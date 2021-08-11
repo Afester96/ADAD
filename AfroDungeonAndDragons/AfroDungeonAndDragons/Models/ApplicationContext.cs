@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AfroDungeonAndDragons.Models.CharacterCreator;
 using Microsoft.Extensions.Configuration;
 using AfroDungeonAndDragons.Data;
+using AfroDungeonAndDragons.Models.DefaultInformation;
 
 namespace AfroDungeonAndDragons.Models
 {
@@ -17,9 +18,7 @@ namespace AfroDungeonAndDragons.Models
         public DbSet<Alignment> Alignments { get; set; }
         public DbSet<Class> Classes { get; set; }
         public DbSet<Race> Races { get; set; }
-        public DbSet<CanCastSpells> CanCastSpellses { get; set; }
-        public DbSet<Size> Sizes { get; set; }
-        public DbSet<SpellCastingAbility> SpellCastingAbilities { get; set; }
+        public DbSet<DefaultRace> DefaultRaces { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
@@ -27,7 +26,9 @@ namespace AfroDungeonAndDragons.Models
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasData(DefeaultRaceList.GetList());
+            modelBuilder.Entity<DefaultRace>().HasData(DefaultRaceList.GetRaceList());
+            modelBuilder.Entity<Class>().HasData(DefaultClassList.GetClassList());
+            modelBuilder.Entity<Background>().HasData(DefaultBackgroundList.GetBackgroundList());
         }
     }
 }
