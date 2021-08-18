@@ -1,1 +1,12 @@
-﻿
+﻿@using AfroDungeonAndDragons.Models.DefaultInformation
+@model IEnumerable<DefaultClass>
+@{
+    ViewBag.Title = "Список классов";
+}
+@foreach (var defClass in Model)
+{
+    <div>
+        <p><h3><b><a asp-action="AboutClass" asp-controller="Classes" asp-route-id="@defClass.Id">@defClass.Name</a></b></h3></p>
+        <p>@defClass.ShortDescription</p>
+    </div>
+}

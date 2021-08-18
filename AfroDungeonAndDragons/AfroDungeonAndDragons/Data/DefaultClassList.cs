@@ -1,4 +1,5 @@
 ﻿using AfroDungeonAndDragons.Models.CharacterCreator;
+using AfroDungeonAndDragons.Models.DefaultInformation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ namespace AfroDungeonAndDragons.Data
 {
     public static class DefaultClassList
     {
-        private static List<Class> _defaultClassesList = new List<Class>
+        private static List<DefaultClass> _defaultClassesList = new List<DefaultClass>
         {
 
         };
-        public static List<Class> GetClassList()
+        public static List<DefaultClass> GetClassList()
         {
             return _defaultClassesList;
         }

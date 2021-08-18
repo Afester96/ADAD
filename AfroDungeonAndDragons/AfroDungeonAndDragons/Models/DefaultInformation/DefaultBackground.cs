@@ -13,12 +13,18 @@ namespace AfroDungeonAndDragons.Models.DefaultInformation
         public string SkillProficienciesDescription { get; set; }
         public string ToolProficienciesDescription { get; set; }
         public string EquipmentDescriptions { get; set; }
-        public string BackgroundSpecialty { get; set; }
         public string FeatureName { get; set; }
         public string FeatureDescription { get; set; }
         public string SuggestedCharcteristicsDescription { get; set; }
         public string SpellListIntroductionDescription { get; set; }
         public string SpellListExtendedDescription { get; set; }
-        public string BackgroundVariant { get; set; }
+        public string BackgroundVariantName { get; set; }
+        public string BackgroundVariantDescription { get; set; }
+        public string FromBook { get; set; }
+        public string LanguagesDescription { get; set; }
+        public string FeatureVariantName { get; set; }
+        public string FeatureVariantDescription { get; set; }
+        public string BackgroundSpecificName { get; set; }
+        public string BackgroundSpecificDescription { get; set; }
     }
 }

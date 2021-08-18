@@ -1,5 +1,13 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using AfroDungeonAndDragons.Models.DefaultInformation
+@model IEnumerable<DefaultBackground>
 @{
+    ViewBag.Title = "Список предысторий";
+}
+@foreach (var background in Model)
+{
+    <div>
+        <p><h3><b><a asp-action="AboutBackground" asp-controller="Backgrounds" asp-route-id="@background.Id">@background.Name</a></b></h3></p>
+        <p>@background.Introduction</p>
+        <p>@background.SpellListIntroductionDescription</p>
+    </div>
 }
