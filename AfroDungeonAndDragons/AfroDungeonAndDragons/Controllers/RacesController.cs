@@ -19,7 +19,8 @@ namespace AfroDungeonAndDragons.Controllers
         }
         public async Task<IActionResult> AllRaces()
         {
-            return View(await db.DefaultRaces.ToListAsync());
+            List<DefaultRace> dr = await db.DefaultRaces.ToListAsync();
+            return View(dr.OrderBy(r => r.Name));
         }
         public async Task<IActionResult> AboutRace(int? id)
         {

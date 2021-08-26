@@ -20,16 +20,21 @@ namespace AfroDungeonAndDragons.Controllers
         {
             return View("../Homebrew/ClassCreator/Classes", await db.Classes.ToListAsync());
         }
-        public IActionResult CreateBackground()
+        public IActionResult CreateClass()
         {
             return View("../Homebrew/ClassCreator/CreateClass");
         }
         [HttpPost]
         public async Task<IActionResult> CreateClass(Class classCreator)
         {
-            db.Classes.Add(classCreator);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Classes");
+            if (ModelState.IsValid)
+            {
+                db.Classes.Add(classCreator);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Classes");
+            }
+            else
+                return View("../Homebrew/ClassCreator/CreateClass");
         }
         public async Task<IActionResult> AboutClass(int? id)
         {
@@ -56,9 +61,14 @@ namespace AfroDungeonAndDragons.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateClass(Class classCreator)
         {
-            db.Classes.Update(classCreator);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Classes");
+            if (ModelState.IsValid)
+            {
+                db.Classes.Update(classCreator);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Classes");
+            }
+            else
+                return View("../Homebrew/ClassCreator/UpdateClass");
         }
         [HttpGet]
         [ActionName("DeleteClass")]

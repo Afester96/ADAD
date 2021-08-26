@@ -3,11 +3,12 @@
 @{
     ViewBag.Title = "Список предысторий";
 }
+<a asp-controller="Home" asp-action="Index">Главная</a> -> <a asp-controller="Backgrounds" asp-action="AllBackgrounds">Предыстории</a>
 @foreach (var background in Model)
 {
     <div>
         <p><h3><b><a asp-action="AboutBackground" asp-controller="Backgrounds" asp-route-id="@background.Id">@background.Name</a></b></h3></p>
-        <p>@background.Introduction</p>
-        <p>@background.SpellListIntroductionDescription</p>
+        <p>@Html.Raw(background.Introduction)</p>
+        <p>@Html.Raw(background.SpellListIntroductionDescription)</p>
     </div>
 }

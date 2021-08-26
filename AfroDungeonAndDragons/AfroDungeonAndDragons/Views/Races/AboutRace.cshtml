@@ -1,47 +1,61 @@
 ﻿@model AfroDungeonAndDragons.Models.DefaultInformation.DefaultRace
-@{ 
+@{
     ViewBag.Title = Model.Name;
 }
-<h2>@Model.Name</h2>
-<h5>@Model.FromBook</h5>
+<a asp-controller="Home" asp-action="Index">Главная</a> -> <a asp-controller="Races" asp-action="AllRaces">Расы</a> -> @Model.Name
+<div>
+    <h1>@Model.Name</h1>
+    <h2>@Model.FromBook</h2>
+</div>
 <div>
     <p>@Model.ShortDescription</p>
 </div>
+@if (Model.LitratureDescription != null)
+{
+    <div>
+        <p>@Html.Raw(Model.LitratureDescription)</p>
+    </div>
+}
+@for (int i = 0; i < Model.Description.Length && i < Model.DescriptionTitle.Length; i++)
+{
+    <div>
+        <h2><b>@Model.DescriptionTitle[i]</b></h2>
+        <p>@Html.Raw(Model.Description[i])</p>
+    </div>
+}
+@if (Model.NamesTitle != null || Model.NamesDescription != null || Model.NamesMan != null || Model.NamesFemale != null || Model.NamesClan != null)
+{
+    <div>
+        <h2>@Model.NamesTitle</h2>
+        <p>@Model.NamesDescription</p>
+        <p><b>Мужские имена: </b>@Model.NamesMan</p>
+        <p><b>Женские имена: </b>@Model.NamesFemale</p>
+        <p><b>Названия кланов: </b>@Model.NamesClan</p>
+    </div>
+}
 <div>
-    <p>@Html.Raw(Model.LitratureDescription)</p>
+    <p><h2><b>Особенности расы</b></h2></p>
+    <p>@Model.RacialTraitDescription</p>
+    <p><b>Увеличение характеристик: </b>@Model.RacialCharacteristics</p>
+    <p><b>Возраст: </b>@Model.RacialAge</p>
+    <p><b>Мировоззрение: </b>@Model.RacialIdeology</p>
+    <p><b>Размер: </b>@Model.RaceSize</p>
+    <p><b>Скорость: </b>@Model.RaceSpeed</p>
+    @for (int i = 0; i < Model.RacialSpellTitle.Length && i < Model.RacialSpellDescription.Length; i++)
+    {
+        <h2>@Model.RacialSpellTitle[i]</h2>
+        <p>@Model.RacialSpellDescription[i]</p>
+    }
+    <p><b>Языки: </b>@Model.RacialLanguages</p>
 </div>
-<div>
-    <p><h3><b>@Model.FirstTitle</b></h3></p>
-    <p>@Model.FirstParagraph</p>
-</div>
-<div>
-    <p><h3><b>@Model.SecondTitle</b></h3></p>
-    <p>@Model.SecondParagraph</p>
-</div>
-<div>
-    <p><h3><b>@Model.ThirdTitle</b></h3></p>
-    <p>@Model.ThirdParagraph</p>
-</div>
-<div>
-    <p><h3><b>@Model.FourthTitle</b></h3></p>
-    <p>@Model.FourthParagraph</p>
-</div>
-<div>
-    <p><h3><b>@Model.FifthTitle</b></h3></p>
-    <p>@Model.FifthParagraph</p>
-</div>
-<div>
-    <p>@Html.Raw(Model.Names)</p>
-</div>
-<div>
-    <p><h3><b>Особенности расы</b></h3></p>
-    <p>@Html.Raw(Model.RacialTrait)</p>
-</div>
-<div>
-    <p><h3><b>@Model.FirstSubraceTitle</b></h3></p>
-    <p>@Model.FirstSubraceDescription</p>
-</div>
-<div>
-    <p><h3><b>@Model.SecondSubraceTitle</b></h3></p>
-    <p>@Model.SecondSubraceDescription</p>
-</div>
+@for (int i = 0; i < Model.SubraceTitle.Length && i < Model.SubraceDescription.Length && i < Model.SubraceTrait.Length && i < Model.SubraceFeatureTitle.Length && i < Model.SubraceFeatureDescription.Length; i++)
+{
+    <div>
+        <h2>@Model.SubraceTitle[i]</h2>
+        <p>@Model.SubraceDescription[i]</p>
+        <h2>Увеличение характеристик</h2>
+        <p>@Model.SubraceTrait[i]</p>
+        <h2>@Model.SubraceFeatureTitle[i]</h2>
+        <p>@Model.SubraceFeatureDescription[i]</p>
+    </div>
+}

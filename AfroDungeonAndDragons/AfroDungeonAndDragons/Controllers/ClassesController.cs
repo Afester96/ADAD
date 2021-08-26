@@ -18,7 +18,8 @@ namespace AfroDungeonAndDragons.Controllers
         }
         public async Task<IActionResult> AllClasses()
         {
-            return View(await db.DefaultClasses.ToListAsync());
+            List<DefaultClass> dc = await db.DefaultClasses.ToListAsync();
+            return View(dc.OrderBy(c => c.Name));
         }
         public async Task<IActionResult> AboutClass(int? id)
         {

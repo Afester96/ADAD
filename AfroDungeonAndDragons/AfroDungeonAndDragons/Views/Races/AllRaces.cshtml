@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Список рас";
 }
+<a asp-controller="Home" asp-action="Index">Главная</a> -> <a asp-controller="Backgrounds" asp-action="AllBackgrounds">Расы</a>
 @foreach (var race in Model)
 {
     <div>

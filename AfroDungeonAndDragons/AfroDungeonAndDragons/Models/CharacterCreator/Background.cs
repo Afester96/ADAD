@@ -9,21 +9,19 @@ namespace AfroDungeonAndDragons.Models.CharacterCreator
     public class Background
     {
         public int Id { get; set; }
-        [Required]
+        [Required (ErrorMessage = "Не указано название предыстории")]
         public string Name { get; set; }
-        [Required]
+        [Required (ErrorMessage = "Не указано описание")]
         public string Introduction { get; set; }
         public string SkillProficienciesDescription { get; set; }
         public string ToolProficienciesDescription { get; set; }
-        public string LanguageDescriptions { get; set; }
         public string EquipmentDescriptions { get; set; }
-        [Required]
-        public string FeatureName { get; set; }
         public string FeatureDescription { get; set; }
-        [Required]
         public string SuggestedCharcteristicsDescription { get; set; }
         public string SpellListIntroductionDescription { get; set; }
         public string SpellListExtendedDescription { get; set; }
-        public string ContactDescription { get; set; }
+        public string BackgroundVariantDescription { get; set; }
+        public string LanguagesDescription { get; set; }
+        public string BackgroundSpecificDescription { get; set; }
     }
 }

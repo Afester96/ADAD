@@ -1,1 +1,71 @@
-﻿
+﻿@model AfroDungeonAndDragons.Models.DefaultInformation.DefaultClass
+@{
+    ViewBag.Title = @Model.Name;
+}
+<a asp-controller="Home" asp-action="Index">Главная</a> -> <a asp-controller="Classes" asp-action="AllClasses">Классы</a> -> @Model.Name
+<div>
+    <h2><b>@Model.Name</b></h2>
+    <p>@Model.FromBook</p>
+</div>
+<div>
+    <p>@Html.Raw(Model.LitratureDescription)</p>
+</div>
+<div>
+    <p>@Html.Raw(Model.ShortDescription)</p>
+</div>
+<div>
+    @for (int i = 0; i < Model.DescriptionTitle.Length && i < Model.Description.Length; i++)
+    {
+        <h4>@Model.DescriptionTitle[i]</h4>
+        <p>@Html.Raw(Model.Description[i])</p>
+    }
+</div>
+<div>
+    <h4>@Model.ClassCreationTitle</h4>
+    <p>@Html.Raw(Model.ClassCreationDescription)</p>
+    <p>@Model.ClassCreationTableTitle</p>
+    <p>@Html.Raw(Model.ClassCreationTable)</p>
+</div>
+<div>
+    <h4>Быстрое создание</h4>
+    <p>@Html.Raw(Model.QuickBuild)</p>
+    <h4>Мультиклассирование и @Model.Name</h4>
+    <p>@Html.Raw(Model.Multiclass)</p>
+</div>
+<div>
+    <h4>КЛАССОВЫЕ УМЕНИЯ</h4>
+    <h4>Хиты</h4>
+    <p><b>Кость Хитов: </b>@Model.HitDice</p>
+    <p><b>Хиты на 1 уровне: </b>@Model.HitPointsAtFirstLevel</p>
+    <p><b>Хиты на следующих уровнях: </b>@Model.HitPointsAtHigherLevels</p>
+    <h4>Владение</h4>
+    <p><b>Доспехи: </b>@Model.Armor</p>
+    <p><b>Оружие: </b>@Model.Weapons</p>
+    <p><b>Инструменты: </b>@Model.Tools</p>
+    <p><b>Спасброски: </b>@Model.SavingThrows</p>
+    <p><b>Навыки: </b>@Model.Skills</p>
+    <h4>Снаряжение</h4>
+    @for (int i = 0; i < Model.Equipment.Length; i++)
+    {
+        <p>@Html.Raw(Model.Equipment[i])</p>
+    }
+</div>
+<div>
+    <h4>ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ</h4>
+    @for (int i = 0; i < Model.ClassSpellTitle.Length && i < Model.ClassSpellDescription.Length; i++)
+    {
+        <h4>@Model.ClassSpellTitle[i]</h4>
+        <p>@Html.Raw(Model.ClassSpellDescription[i])</p>
+    }
+</div>
+<div>
+    <h4>@Model.TypeTitle</h4>
+    <p>@Model.TypeDescriprion</p>
+    @for (int i = 0; i < Model.VariantsTitle.Length && i < Model.VariantDescription.Length && i < Model.VariantSpellsTitle.Length && i < Model.VariantSpellsDescription.Length; i++)
+    {
+        <h4>@Model.VariantsTitle[i]</h4>
+        <p>@Html.Raw(Model.VariantDescription[i])</p>
+        <h4>@Model.VariantSpellsTitle[i]</h4>
+        <p>@Html.Raw(Model.VariantSpellsDescription[i])</p>
+    }
+</div>

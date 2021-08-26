@@ -31,6 +31,48 @@ namespace AfroDungeonAndDragons.Models
             modelBuilder.Entity<DefaultRace>().HasData(DefaultRaceList.GetRaceList());
             modelBuilder.Entity<DefaultClass>().HasData(DefaultClassList.GetClassList());
             modelBuilder.Entity<DefaultBackground>().HasData(DefaultBackgroundList.GetBackgroundList());
+            DefaultClassStringJoin(modelBuilder, dc => dc.Description);
+            DefaultClassStringJoin(modelBuilder, dc => dc.DescriptionTitle);
+            DefaultClassStringJoin(modelBuilder, dc => dc.Equipment);
+            DefaultClassStringJoin(modelBuilder, dc => dc.ClassSpellTitle);
+            DefaultClassStringJoin(modelBuilder, dc => dc.ClassSpellDescription);
+            DefaultClassStringJoin(modelBuilder, dc => dc.VariantsTitle);
+            DefaultClassStringJoin(modelBuilder, dc => dc.VariantDescription);
+            DefaultClassStringJoin(modelBuilder, dc => dc.VariantSpellsTitle);
+            DefaultClassStringJoin(modelBuilder, dc => dc.VariantSpellsDescription);
+            DefaultRaceStringJoin(modelBuilder, dc => dc.SubraceTitle);
+            DefaultRaceStringJoin(modelBuilder, dc => dc.SubraceDescription);
+            DefaultRaceStringJoin(modelBuilder, dc => dc.Description);
+            DefaultRaceStringJoin(modelBuilder, dc => dc.DescriptionTitle);
+            DefaultRaceStringJoin(modelBuilder, dc => dc.RacialSpellTitle);
+            DefaultRaceStringJoin(modelBuilder, dc => dc.RacialSpellDescription);
+            DefaultRaceStringJoin(modelBuilder, dc => dc.SubraceTrait);
+            DefaultRaceStringJoin(modelBuilder, dc => dc.SubraceFeatureTitle);
+            DefaultRaceStringJoin(modelBuilder, dc => dc.SubraceFeatureDescription);
+        }
+        public static void DefaultClassStringJoin(ModelBuilder md, System.Linq.Expressions.Expression<Func<DefaultClass, string[]>> test)
+        {
+            md.Entity<DefaultClass>()
+            .Property(test)
+            .HasConversion(
+                v => string.Join("<next>", v),
+                v => v.Split("<next>", StringSplitOptions.RemoveEmptyEntries));
+        }
+        public static void DefaultRaceStringJoin(ModelBuilder md, System.Linq.Expressions.Expression<Func<DefaultRace, string[]>> test)
+        {
+            md.Entity<DefaultRace>()
+            .Property(test)
+            .HasConversion(
+                v => string.Join("<next>", v),
+                v => v.Split("<next>", StringSplitOptions.RemoveEmptyEntries));
+        }
+        public static void DefaultBackgroundStringJoin(ModelBuilder md, System.Linq.Expressions.Expression<Func<DefaultRace, string[]>> test)
+        {
+            md.Entity<DefaultRace>()
+            .Property(test)
+            .HasConversion(
+                v => string.Join("<next>", v),
+                v => v.Split("<next>", StringSplitOptions.RemoveEmptyEntries));
         }
     }
 }

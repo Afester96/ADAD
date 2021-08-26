@@ -27,9 +27,15 @@ namespace AfroDungeonAndDragons.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateBackground(Background background)
         {
-            db.Backgrounds.Add(background);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Backgrounds");
+            if (ModelState.IsValid)
+            {
+                db.Backgrounds.Add(background);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Backgrounds");
+            }
+            else
+                return View("../Homebrew/BackgroundCreator/CreateBackground");
+            
         }
         public async Task<IActionResult> AboutBackground(int? id)
         {
@@ -56,9 +62,14 @@ namespace AfroDungeonAndDragons.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateBackground(Background background)
         {
-            db.Backgrounds.Update(background);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Backgrounds");
+            if (ModelState.IsValid)
+            {
+                db.Backgrounds.Update(background);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Backgrounds");
+            }
+            else
+                return View("../Homebrew/BackgroundCreator/UpdateBackground");
         }
         [HttpGet]
         [ActionName("DeleteBackground")]

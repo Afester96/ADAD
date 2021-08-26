@@ -1,5 +1,14 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model AfroDungeonAndDragons.Models.CharacterCreator.Class
 @{
+    ViewBag.Title = "Удаление класса";
 }
+<div>
+    <h2>Вы точно хотите удалить класс: @Model.Name</h2>
+</div>
+<div>
+    <form asp-controller="ClassCreator" asp-action="DeleteClass" method="post">
+        <div class="form-group">
+            <input type="submit" class="btn btn-default" value="Удалить" />
+        </div>
+    </form>
+</div>

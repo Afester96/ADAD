@@ -4,14 +4,16 @@ using AfroDungeonAndDragons.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AfroDungeonAndDragons.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210824134159_all-default-models-another")]
+    partial class alldefaultmodelsanother
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,10 +46,7 @@ namespace AfroDungeonAndDragons.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("BackgroundSpecificDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BackgroundVariantDescription")
+                    b.Property<string>("ContactDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EquipmentDescriptions")
@@ -56,11 +55,15 @@ namespace AfroDungeonAndDragons.Migrations
                     b.Property<string>("FeatureDescription")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FeatureName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Introduction")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LanguagesDescription")
+                    b.Property<string>("LanguageDescriptions")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -77,6 +80,7 @@ namespace AfroDungeonAndDragons.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SuggestedCharcteristicsDescription")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ToolProficienciesDescription")
@@ -162,69 +166,21 @@ namespace AfroDungeonAndDragons.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Armor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClassCreationDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClassCreationTable")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClassSpells")
+                    b.Property<string>("CanCastSpells")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Equipment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HitDice")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HitPointsAtFirstLevel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HitPointsAtHigherLevels")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LitratureDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Multiclass")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("QuickBuild")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SavingThrows")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ShortDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Skills")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Tools")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TypeDescriprion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TypeTitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VariantDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Weapons")
+                    b.Property<string>("SpellCastingAbility")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -242,6 +198,9 @@ namespace AfroDungeonAndDragons.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FromBook")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LitratureDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -249,54 +208,22 @@ namespace AfroDungeonAndDragons.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NamesClan")
+                    b.Property<string>("Names")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NamesDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NamesFemale")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NamesMan")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RaceSize")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RaceSpeed")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RacialAge")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RacialCharacteristics")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RacialIdeology")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RacialLanguages")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RacialSpellDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RacialTraitDescription")
+                    b.Property<string>("RacialTrait")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShortDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ShortRacialTraitDescription")
-                        .IsRequired()
+                    b.Property<string>("Size")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SubraceDescription")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Speed")
+                        .HasColumnType("int");
 
-                    b.Property<string>("SubraceFeatureDescription")
+                    b.Property<string>("Subrace")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

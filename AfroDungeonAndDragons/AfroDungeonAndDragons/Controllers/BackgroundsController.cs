@@ -18,7 +18,8 @@ namespace AfroDungeonAndDragons.Controllers
         }
         public async Task<IActionResult> AllBackgrounds()
         {
-            return View(await db.DefaultBackgrounds.ToListAsync());
+            List<DefaultBackground> dbc = await db.DefaultBackgrounds.ToListAsync();
+            return View(dbc.OrderBy(b => b.Name));
         }
         public async Task<IActionResult> AboutBackground(int? id)
         {

@@ -6,37 +6,81 @@
     <div class="form-group">
         <label asp-for="Name" class="control-label">Название расы</label>
         <input asp-for="Name" class="form-control" type="text" />
+        <span asp-validation-for="Name"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Size" class="control-label">Размер</label>
-        <select size="1" asp-for="Size" class="form-control">
-            <option value="Крохотное">Крохотное</option>
-            <option value="Маленькое">Маленькое</option>
-            <option value="Среднее">Среднее</option>
-            <option value="Большое">Большое</option>
-            <option value="Огромное">Огромное</option>
-            <option value="Громадное">Громадное</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label asp-for="Speed" class="control-label">Скорость</label>
-        <input asp-for="Speed" class="form-control" type="number" />
-    </div>
-    <div class="form-group">
-        <label asp-for="ShortDescription" class="control-label">Короткое описание</label>
+        <label asp-for="ShortDescription" class="control-label">Краткое описание</label>
         <input asp-for="ShortDescription" class="form-control" type="text" />
+        <span asp-validation-for="ShortDescription"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Description" class="control-label">Длинное описание</label>
+        <label asp-for="LitratureDescription" class="control-label">Литературное описание</label>
+        <input asp-for="LitratureDescription" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Описание</label>
         <input asp-for="Description" class="form-control" type="text" />
     </div>
     <div class="form-group">
-        <label asp-for="RacialTrait" class="control-label">Черты</label>
-        <input asp-for="RacialTrait" class="form-control" type="text" />
+        <label asp-for="NamesDescription" class="control-label">Описание имён</label>
+        <input asp-for="NamesDescription" class="form-control" type="text" />
     </div>
     <div class="form-group">
-        <label asp-for="FromBook" class="control-label">Из книги</label>
-        <input asp-for="FromBook" class="form-control" type="text" />
+        <label asp-for="NamesMan" class="control-label">Мужские имена</label>
+        <input asp-for="NamesMan" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NamesFemale" class="control-label">Женские имена</label>
+        <input asp-for="NamesFemale" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NamesClan" class="control-label">Названия кланов</label>
+        <input asp-for="NamesClan" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ShortRacialTraitDescription" class="control-label">Краткое описание особенностей</label>
+        <input asp-for="ShortRacialTraitDescription" class="form-control" type="text" />
+        <span asp-validation-for="ShortRacialTraitDescription"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RacialTraitDescription" class="control-label">Описание особенностей</label>
+        <input asp-for="RacialTraitDescription" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RacialCharacteristics" class="control-label">Увеличение характеристик</label>
+        <input asp-for="RacialCharacteristics" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RacialAge" class="control-label">Возраст</label>
+        <input asp-for="RacialAge" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RacialIdeology" class="control-label">Мировозрение</label>
+        <input asp-for="RacialIdeology" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RaceSize" class="control-label">Размер</label>
+        <input asp-for="RaceSize" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RaceSpeed" class="control-label">Скорость</label>
+        <input asp-for="RaceSpeed" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RacialLanguages" class="control-label">Языки</label>
+        <input asp-for="RacialLanguages" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RacialSpellDescription" class="control-label">Описание способностей</label>
+        <input asp-for="RacialSpellDescription" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="SubraceDescription" class="control-label">Описание подрас</label>
+        <input asp-for="SubraceDescription" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="SubraceFeatureDescription" class="control-label">Особенности подрас</label>
+        <input asp-for="SubraceFeatureDescription" class="form-control" type="text" />
     </div>
     <div class="form-group">
         <input type="submit" value="Сохранить изменения" class="btn btn-default" />

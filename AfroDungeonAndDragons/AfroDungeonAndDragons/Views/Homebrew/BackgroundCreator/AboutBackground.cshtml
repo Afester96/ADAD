@@ -6,20 +6,62 @@
     <h2><b>@Model.Name</b></h2>
 </div>
 <div>
-    <p>@Model.Introduction</p>
+    @Html.Raw(Model.Introduction)
 </div>
+@if (Model.SkillProficienciesDescription != null || Model.ToolProficienciesDescription != null || Model.LanguagesDescription != null || Model.EquipmentDescriptions != null)
+{
+    <div>
+        @if (Model.SkillProficienciesDescription != null)
+        {
+            <p><b>Владение навыками: </b>@Html.Raw(Model.SkillProficienciesDescription)</p>
+        }
+        @if (Model.ToolProficienciesDescription != null)
+        {
+            <p><b>Владение инструментами: </b>@Html.Raw(Model.ToolProficienciesDescription)</p>
+        }
+        @if (Model.LanguagesDescription != null)
+        {
+            <p><b>Языки: </b>@Html.Raw(Model.LanguagesDescription)</p>
+        }
+        @if (Model.EquipmentDescriptions != null)
+        {
+            <p><b>Снаряжение: </b>@Html.Raw(Model.EquipmentDescriptions)</p>
+        }
+    </div>
+}
+@if (Model.BackgroundSpecificDescription != null)
+{
+    <div>
+        <h4></h4>
+        <p>@Html.Raw(Model.BackgroundSpecificDescription)</p>
+    </div>
+}
+@if (Model.FeatureDescription != null)
+{
+    <div>
+        <p>@Html.Raw(Model.FeatureDescription)</p>
+    </div>
+}
+@if (Model.SuggestedCharcteristicsDescription != null)
+{
+    <div>
+        <h4>ПЕРСОНАЛИЗАЦИЯ</h4>
+        <p>@Html.Raw(Model.SuggestedCharcteristicsDescription)</p>
+    </div>
+}
+@if (Model.SpellListExtendedDescription != null)
+{
+    <div>
+        <p>@Html.Raw(Model.SpellListExtendedDescription)</p>
+    </div>
+}
+@if (Model.BackgroundVariantDescription != null)
+{
+    <div>
+        <p>@Html.Raw(Model.BackgroundVariantDescription)</p>
+    </div>
+}
 <div>
-    <p>@Model.SkillProficienciesDescription</p>
-    <p>@Model.ToolProficienciesDescription</p>
-    <p>@Model.EquipmentDescriptions</p>
-</div>
-<div>
-    <p>@Model.FeatureName</p>
-    <p>@Model.FeatureDescription</p>
-</div>
-<div>
-    <p>@Model.SuggestedCharcteristicsDescription</p>
-</div>
-<div>
-    <p>@Model.SpellListExtendedDescription</p>
+    <a asp-action="UpdateBackground" asp-controller="BackgroundCreator" asp-route-id="@Model.Id">Изменить предысторию</a>
+    <a asp-action="DeleteBackground" asp-controller="BackgroundCreator" asp-route-id="@Model.Id">Удалить предысторию</a>
 </div>

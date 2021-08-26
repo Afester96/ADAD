@@ -27,9 +27,14 @@ namespace AfroDungeonAndDragons.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRace(Race race)
         {
-            db.Races.Add(race);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Races");
+            if (ModelState.IsValid)
+            {
+                db.Races.Add(race);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Races");
+            }
+            else
+                return View("../Homebrew/RaceCreator/CreateRace");
         }
         public async Task<IActionResult> AboutRace(int? id)
         {
@@ -56,9 +61,14 @@ namespace AfroDungeonAndDragons.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateRace(Race race)
         {
-            db.Races.Update(race);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Races");
+            if (ModelState.IsValid)
+            {
+                db.Races.Update(race);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Races");
+            }
+            else
+                return View("../Homebrew/RaceCreator/UpdateRace");
         }
         [HttpGet]
         [ActionName("DeleteRace")]

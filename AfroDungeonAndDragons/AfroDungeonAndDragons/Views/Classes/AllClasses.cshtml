@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Список классов";
 }
+<a asp-controller="Home" asp-action="Index">Главная</a> -> <a asp-controller="Backgrounds" asp-action="AllBackgrounds">Классы</a>
 @foreach (var defClass in Model)
 {
     <div>

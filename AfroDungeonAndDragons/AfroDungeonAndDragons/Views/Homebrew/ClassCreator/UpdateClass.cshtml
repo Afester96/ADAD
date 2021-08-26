@@ -1,5 +1,95 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model AfroDungeonAndDragons.Models.CharacterCreator.Class
 @{
+    ViewBag.Title = "Изменение класса";
 }
+<form asp-action="UpdateClass" asp-controller="ClassCreator">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Название класса</label>
+        <input asp-for="Name" class="form-control" type="text" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LitratureDescription" class="control-label">Литературное описание</label>
+        <input asp-for="LitratureDescription" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ShortDescription" class="control-label">Краткое описание</label>
+        <input asp-for="ShortDescription" class="form-control" type="text" />
+        <span asp-validation-for="ShortDescription"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Описание</label>
+        <input asp-for="Description" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ClassCreationDescription" class="control-label">Описание создания класса</label>
+        <input asp-for="ClassCreationDescription" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ClassCreationTable" class="control-label">Таблица класса</label>
+        <input asp-for="ClassCreationTable" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="QuickBuild" class="control-label">Быстрое создание</label>
+        <input asp-for="QuickBuild" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Multiclass" class="control-label">Мультиклассирование</label>
+        <input asp-for="Multiclass" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="HitDice" class="control-label">Кость Хитов</label>
+        <input asp-for="HitDice" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="HitPointsAtFirstLevel" class="control-label">Хиты на 1 уровне</label>
+        <input asp-for="HitPointsAtFirstLevel" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="HitPointsAtHigherLevels" class="control-label">Хиты на следующих уровнях</label>
+        <input asp-for="HitPointsAtHigherLevels" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Armor" class="control-label">Доспехи</label>
+        <input asp-for="Armor" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Weapons" class="control-label">Оружие</label>
+        <input asp-for="Weapons" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Tools" class="control-label">Инструменты</label>
+        <input asp-for="Tools" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="SavingThrows" class="control-label">Спасброски</label>
+        <input asp-for="SavingThrows" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Skills" class="control-label">Навыки</label>
+        <input asp-for="Skills" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Equipment" class="control-label">Снаряжение</label>
+        <input asp-for="Equipment" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ClassSpells" class="control-label">Заклинания</label>
+        <input asp-for="ClassSpells" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TypeTitle" class="control-label">Типы классов</label>
+        <input asp-for="TypeTitle" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TypeDescriprion" class="control-label">Описание типов классов</label>
+        <input asp-for="TypeDescriprion" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="VariantDescription" class="control-label">Подклассы</label>
+        <input asp-for="VariantDescription" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Сохранить изменения" class="btn btn-default" />
+    </div>
+</form>
