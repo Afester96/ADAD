@@ -26,5 +26,7 @@ namespace AfroDungeonAndDragons.Models.DefaultInformation
         public string FeatureVariantDescription { get; set; }
         public string BackgroundSpecificName { get; set; }
         public string BackgroundSpecificDescription { get; set; }
+        public string SuggestedCharcteristicsDescriptionTable { get; set; }
+        public string BackgroundSpecificDescriptionTable { get; set; }
     }
 }

@@ -2,60 +2,131 @@
 @{
     ViewBag.Title = Model.Name;
 }
-<a asp-controller="Home" asp-action="Index">Главная</a> -> <a asp-controller="Races" asp-action="AllRaces">Расы</a> -> @Model.Name
-<div>
-    <h1>@Model.Name</h1>
-    <h2>@Model.FromBook</h2>
+<div class="line_row">
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        <a asp-controller="Races" asp-action="AllRaces">Расы</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        @Model.Name
+    </div>
 </div>
-<div>
-    <p>@Model.ShortDescription</p>
+<div class="about_race_container">
+    <div class="all_content_row">
+        <div class="upper_page_body">
+            <div class="upper_page_body_title">
+                <h1>@Model.Name</h1>
+            </div>
+            <div class="upper_page_body_from_book">
+                <h2>@Model.FromBook</h2>
+            </div>
+        </div>
+        <div class="content_litrature_description">
+            <p>@Html.Raw(Model.LitratureDescription)</p>
+        </div>
+        <div class="content_short_description">
+            <p>@Model.ShortDescription</p>
+        </div>
+        @for (int i = 0; i < Model.Description.Length && i < Model.DescriptionTitle?.Length; i++)
+        {
+            <div>
+                <div class="content_title">
+                    <h2><b>@Model.DescriptionTitle[i].ToUpper()</b></h2>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.Description[i])</p>
+                </div>
+            </div>
+        }
+        <div>
+            <div class="content_title">
+                <h2>@Model.NamesTitle.ToUpper()</h2>
+            </div>
+            <div class="content_text">
+                <p>@Model.NamesDescription</p>
+            </div>
+            @if (Model.NamesMan != null)
+            {
+                <div class="content_text">
+                    <p><b>Мужские имена: </b>@Model.NamesMan</p>
+                </div>
+            }
+            @if (Model.NamesFemale != null)
+            {
+                <div class="content_text">
+                    <p><b>Женские имена: </b>@Model.NamesFemale</p>
+                </div>
+            }
+            @if (Model.NamesClan != null)
+            {
+                <div class="content_text">
+                    <p><b>Названия кланов: </b>@Model.NamesClan</p>
+                </div>
+            }
+        </div>
+        <div>
+            <div class="content_title">
+                <p><b>ОCОБЕННОСТИ РАСЫ</b></p>
+            </div>
+            <div class="content_text">
+                <p>@Model.RacialTraitDescription</p>
+            </div>
+            <div class="content_text">
+                <p><b>Увеличение характеристик: </b>@Model.RacialCharacteristics</p>
+            </div>
+            <div class="content_text">
+                <p><b>Возраст: </b>@Model.RacialAge</p>
+            </div>
+            <div class="content_text">
+                <p><b>Мировоззрение: </b>@Model.RacialIdeology</p>
+            </div>
+            <div class="content_text">
+                <p><b>Размер: </b>@Model.RaceSize</p>
+            </div>
+            <div class="content_text">
+                <p><b>Скорость: </b>@Model.RaceSpeed</p>
+            </div>
+            @for (int i = 0; i < Model.RacialSpellTitle?.Length && i < Model.RacialSpellDescription?.Length; i++)
+            {
+                <div>
+                    <div class="content_title">
+                        <h2>@Model.RacialSpellTitle[i].ToUpper()</h2>
+                    </div>
+                    <div class="content_text">
+                        <p>@Model.RacialSpellDescription[i]</p>
+                    </div>
+                </div>
+            }
+            <div class="content_text">
+                <p><b>Языки: </b>@Model.RacialLanguages</p>
+            </div>
+        </div>
+        @for (int i = 0; i < Model.SubraceTitle?.Length && i < Model.SubraceDescription?.Length && i < Model.SubraceTrait?.Length && i < Model.SubraceFeatureTitle?.Length && i < Model.SubraceFeatureDescription?.Length; i++)
+        {
+            <div>
+                <div class="content_title">
+                    <h2>@Model.SubraceTitle[i].ToUpper()</h2>
+                </div>
+                <div class="content_text">
+                    <p>@Model.SubraceDescription[i]</p>
+                </div>
+                <div class="content_title">
+                    <h2>УВЕЛИЧЕНИЕ ХАРАКТЕРИСТИК</h2>
+                </div>
+                <div class="content_text">
+                    <p>@Model.SubraceTrait[i]</p>
+                </div>
+                <div class="content_title">
+                    <h2>@Model.SubraceFeatureTitle[i].ToUpper()</h2>
+                </div>
+                <div class="content_text">
+                    <p>@Model.SubraceFeatureDescription[i]</p>
+                </div>
+            </div>
+        }
+    </div>
 </div>
-@if (Model.LitratureDescription != null)
-{
-    <div>
-        <p>@Html.Raw(Model.LitratureDescription)</p>
-    </div>
-}
-@for (int i = 0; i < Model.Description.Length && i < Model.DescriptionTitle.Length; i++)
-{
-    <div>
-        <h2><b>@Model.DescriptionTitle[i]</b></h2>
-        <p>@Html.Raw(Model.Description[i])</p>
-    </div>
-}
-@if (Model.NamesTitle != null || Model.NamesDescription != null || Model.NamesMan != null || Model.NamesFemale != null || Model.NamesClan != null)
-{
-    <div>
-        <h2>@Model.NamesTitle</h2>
-        <p>@Model.NamesDescription</p>
-        <p><b>Мужские имена: </b>@Model.NamesMan</p>
-        <p><b>Женские имена: </b>@Model.NamesFemale</p>
-        <p><b>Названия кланов: </b>@Model.NamesClan</p>
-    </div>
-}
-<div>
-    <p><h2><b>Особенности расы</b></h2></p>
-    <p>@Model.RacialTraitDescription</p>
-    <p><b>Увеличение характеристик: </b>@Model.RacialCharacteristics</p>
-    <p><b>Возраст: </b>@Model.RacialAge</p>
-    <p><b>Мировоззрение: </b>@Model.RacialIdeology</p>
-    <p><b>Размер: </b>@Model.RaceSize</p>
-    <p><b>Скорость: </b>@Model.RaceSpeed</p>
-    @for (int i = 0; i < Model.RacialSpellTitle.Length && i < Model.RacialSpellDescription.Length; i++)
-    {
-        <h2>@Model.RacialSpellTitle[i]</h2>
-        <p>@Model.RacialSpellDescription[i]</p>
-    }
-    <p><b>Языки: </b>@Model.RacialLanguages</p>
-</div>
-@for (int i = 0; i < Model.SubraceTitle.Length && i < Model.SubraceDescription.Length && i < Model.SubraceTrait.Length && i < Model.SubraceFeatureTitle.Length && i < Model.SubraceFeatureDescription.Length; i++)
-{
-    <div>
-        <h2>@Model.SubraceTitle[i]</h2>
-        <p>@Model.SubraceDescription[i]</p>
-        <h2>Увеличение характеристик</h2>
-        <p>@Model.SubraceTrait[i]</p>
-        <h2>@Model.SubraceFeatureTitle[i]</h2>
-        <p>@Model.SubraceFeatureDescription[i]</p>
-    </div>
-}

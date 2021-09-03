@@ -2,61 +2,119 @@
 @{
     ViewBag.Title = Model.Name;
 }
-<a asp-controller="Home" asp-action="Index">Главная</a> -> <a asp-controller="Backgrounds" asp-action="AllBackgrounds">Предыстории</a> -> @Model.Name
-<div>
-    <h2><b>@Model.Name</b></h2>
+<div class="line_row">
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        <a asp-controller="Backgrounds" asp-action="AllBackgrounds">Предыстории</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        @Model.Name
+    </div>
 </div>
-<div>
-    @Html.Raw(Model.Introduction)
-</div>
-<div>
-    <p><b>Владение навыками: </b>@Html.Raw(Model.SkillProficienciesDescription)</p>
-    @if (Model.ToolProficienciesDescription != null)
-    {
-        <p><b>Владение инструментами: </b>@Html.Raw(Model.ToolProficienciesDescription)</p>
-    }
-    @if (Model.LanguagesDescription != null)
-    {
-        <p><b>Языки: </b>@Html.Raw(Model.LanguagesDescription)</p>
-    }
-    <p><b>Снаряжение: </b>@Html.Raw(Model.EquipmentDescriptions)</p>
-</div>
-@if (Model.BackgroundSpecificName != null || Model.BackgroundSpecificDescription != null)
-{
-    <div>
-        <h4>@Model.BackgroundSpecificName</h4>
-        <p>@Html.Raw(Model.BackgroundSpecificDescription)</p>
+<div class="about_race_container">
+    <div class="all_content_row">
+        <div class="upper_page_body">
+            <div class="upper_page_body_title">
+                <h1>@Model.Name</h1>
+            </div>
+        </div>
+        <div class="content_short_description">
+            @Html.Raw(Model.Introduction)
+        </div>
+        <div>
+            <div class="content_text">
+                <p><b>Владение навыками: </b>@Html.Raw(Model.SkillProficienciesDescription)</p>
+            </div>
+            @if (Model.ToolProficienciesDescription != null)
+            {
+                <div class="content_text">
+                    <p><b>Владение инструментами: </b>@Html.Raw(Model.ToolProficienciesDescription)</p>
+                </div>
+            }
+            @if (Model.LanguagesDescription != null)
+            {
+                <div class="content_text">
+                    <p><b>Языки: </b>@Html.Raw(Model.LanguagesDescription)</p>
+                </div>
+            }
+            <div class="content_text">
+                <p><b>Снаряжение: </b>@Html.Raw(Model.EquipmentDescriptions)</p>
+            </div>
+        </div>
+        @if (Model.BackgroundSpecificName != null || Model.BackgroundSpecificDescription != null)
+        {
+            <div>
+                <div class="content_title">
+                    <h4>@Model.BackgroundSpecificName</h4>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.BackgroundSpecificDescription)</p>
+                </div>
+                <div class="content_table">
+                    <p>@Html.Raw(Model.BackgroundSpecificDescriptionTable)</p>
+                </div>
+            </div>
+        }
+        @if (Model.FeatureName != null || Model.FeatureDescription != null)
+        {
+            <div>
+                <div class="content_title">
+                    <h4>УМЕНИЕ: @Model.FeatureName</h4>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.FeatureDescription)</p>
+                </div>
+            </div>
+        }
+        <div>
+            <div class="content_title">
+                <h4>ПЕРСОНАЛИЗАЦИЯ</h4>
+            </div>
+            <div class="content_text">
+                <p>@Html.Raw(Model.SuggestedCharcteristicsDescription)</p>
+            </div>
+            <div class="content_many_tables">
+                <p>@Html.Raw(Model.SuggestedCharcteristicsDescriptionTable)</p>
+            </div>
+        </div>
+        @if (Model.SpellListIntroductionDescription != null || Model.SpellListExtendedDescription != null)
+        {
+            <div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.SpellListIntroductionDescription)</p>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.SpellListExtendedDescription)</p>
+                </div>
+            </div>
+        }
+        @if (Model.BackgroundVariantName != null)
+        {
+            <div>
+                <div class="content_title">
+                    <h4>@Model.BackgroundVariantName</h4>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.BackgroundVariantDescription)</p>
+
+                </div>
+            </div>
+            <div>
+                <div class="content_title">
+                    <h4>@Model.FeatureVariantName</h4>
+                </div>
+                <div class="content_text">
+                    <p>@Model.FeatureVariantDescription</p>
+
+                </div>
+            </div>
+        }
+        <div class="upper_page_body_from_book">
+            <p>@Model.FromBook</p>
+        </div>
     </div>
-}
-@if (Model.FeatureName != null || Model.FeatureDescription != null)
-{
-    <div>
-        <h4>УМЕНИЕ: @Model.FeatureName</h4>
-        <p>@Html.Raw(Model.FeatureDescription)</p>
-    </div>
-}
-<div>
-    <h4>ПЕРСОНАЛИЗАЦИЯ</h4>
-    <p>@Html.Raw(Model.SuggestedCharcteristicsDescription)</p>
-</div>
-@if (Model.SpellListIntroductionDescription != null || Model.SpellListExtendedDescription != null)
-{
-    <div>
-        <p>@Html.Raw(Model.SpellListIntroductionDescription)</p>
-        <p>@Html.Raw(Model.SpellListExtendedDescription)</p>
-    </div>
-}
-@if (Model.BackgroundVariantName != null)
-{
-    <div>
-        <h4>@Model.BackgroundVariantName</h4>
-        <p>@Html.Raw(Model.BackgroundVariantDescription)</p>
-    </div>
-    <div>
-        <h4>@Model.FeatureVariantName</h4>
-        <p>@Model.FeatureVariantDescription</p>
-    </div>
-}
-<div>
-    <p>@Model.FromBook</p>
 </div>

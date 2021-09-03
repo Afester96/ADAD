@@ -3,11 +3,26 @@
 @{
     ViewBag.Title = "Список классов";
 }
-<a asp-controller="Home" asp-action="Index">Главная</a> -> <a asp-controller="Backgrounds" asp-action="AllBackgrounds">Классы</a>
-@foreach (var defClass in Model)
-{
-    <div>
-        <p><h3><b><a asp-action="AboutClass" asp-controller="Classes" asp-route-id="@defClass.Id">@defClass.Name</a></b></h3></p>
-        <p>@defClass.ShortDescription</p>
+<div class="line_row">
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
     </div>
-}
+    <div class="line_arrow">
+    </div>
+    <div class="line_text">
+        <a asp-controller="Backgrounds" asp-action="AllBackgrounds">Классы</a>
+    </div>
+</div>
+<div class="all_content_row">
+    @foreach (var defClass in Model)
+    {
+        <div class="all_content_body">
+            <div class="all_content_body_title">
+                <p><a asp-action="AboutClass" asp-controller="Classes" asp-route-id="@defClass.Id">@defClass.Name</a></p>
+            </div>
+            <div class="all_content_body_description">
+                <p>@defClass.ShortDescription</p>
+            </div>
+        </div>
+    }
+</div>

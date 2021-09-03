@@ -3,12 +3,29 @@
 @{
     ViewBag.Title = "Список рас";
 }
-<a asp-controller="Home" asp-action="Index">Главная</a> -> <a asp-controller="Backgrounds" asp-action="AllBackgrounds">Расы</a>
-@foreach (var race in Model)
-{
-    <div>
-        <p><h3><b><a asp-action="AboutRace" asp-controller="Races" asp-route-id="@race.Id">@race.Name</a></b></h3></p>
-        <p><h5>@race.FromBook</h5></p>
-        <p>@race.ShortDescription</p>
+<div class="line_row">
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
     </div>
-}
+    <div class="line_arrow">
+    </div>
+    <div class="line_text">
+        <a asp-controller="Backgrounds" asp-action="AllBackgrounds">Расы</a>
+    </div>
+</div>
+<div class="all_content_row">
+    @foreach (var race in Model)
+    {
+        <div class="all_content_body">
+            <div class="all_content_body_title">
+                <p><a asp-action="AboutRace" asp-controller="Races" asp-route-id="@race.Id">@race.Name</a></p>
+            </div>
+            <div class="all_content_body_from_book">
+                <p><h5>@race.FromBook</h5></p>
+            </div>
+            <div class="all_content_body_description">
+                <p>@race.ShortDescription</p>
+            </div>
+        </div>
+    }
+</div>

@@ -2,70 +2,157 @@
 @{
     ViewBag.Title = @Model.Name;
 }
-<a asp-controller="Home" asp-action="Index">Главная</a> -> <a asp-controller="Classes" asp-action="AllClasses">Классы</a> -> @Model.Name
-<div>
-    <h2><b>@Model.Name</b></h2>
-    <p>@Model.FromBook</p>
+<div class="line_row">
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        <a asp-controller="Classes" asp-action="AllClasses">Классы</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        @Model.Name
+    </div>
 </div>
-<div>
-    <p>@Html.Raw(Model.LitratureDescription)</p>
-</div>
-<div>
-    <p>@Html.Raw(Model.ShortDescription)</p>
-</div>
-<div>
-    @for (int i = 0; i < Model.DescriptionTitle.Length && i < Model.Description.Length; i++)
-    {
-        <h4>@Model.DescriptionTitle[i]</h4>
-        <p>@Html.Raw(Model.Description[i])</p>
-    }
-</div>
-<div>
-    <h4>@Model.ClassCreationTitle</h4>
-    <p>@Html.Raw(Model.ClassCreationDescription)</p>
-    <p>@Model.ClassCreationTableTitle</p>
-    <p>@Html.Raw(Model.ClassCreationTable)</p>
-</div>
-<div>
-    <h4>Быстрое создание</h4>
-    <p>@Html.Raw(Model.QuickBuild)</p>
-    <h4>Мультиклассирование и @Model.Name</h4>
-    <p>@Html.Raw(Model.Multiclass)</p>
-</div>
-<div>
-    <h4>КЛАССОВЫЕ УМЕНИЯ</h4>
-    <h4>Хиты</h4>
-    <p><b>Кость Хитов: </b>@Model.HitDice</p>
-    <p><b>Хиты на 1 уровне: </b>@Model.HitPointsAtFirstLevel</p>
-    <p><b>Хиты на следующих уровнях: </b>@Model.HitPointsAtHigherLevels</p>
-    <h4>Владение</h4>
-    <p><b>Доспехи: </b>@Model.Armor</p>
-    <p><b>Оружие: </b>@Model.Weapons</p>
-    <p><b>Инструменты: </b>@Model.Tools</p>
-    <p><b>Спасброски: </b>@Model.SavingThrows</p>
-    <p><b>Навыки: </b>@Model.Skills</p>
-    <h4>Снаряжение</h4>
-    @for (int i = 0; i < Model.Equipment.Length; i++)
-    {
-        <p>@Html.Raw(Model.Equipment[i])</p>
-    }
-</div>
-<div>
-    <h4>ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ</h4>
-    @for (int i = 0; i < Model.ClassSpellTitle.Length && i < Model.ClassSpellDescription.Length; i++)
-    {
-        <h4>@Model.ClassSpellTitle[i]</h4>
-        <p>@Html.Raw(Model.ClassSpellDescription[i])</p>
-    }
-</div>
-<div>
-    <h4>@Model.TypeTitle</h4>
-    <p>@Model.TypeDescriprion</p>
-    @for (int i = 0; i < Model.VariantsTitle.Length && i < Model.VariantDescription.Length && i < Model.VariantSpellsTitle.Length && i < Model.VariantSpellsDescription.Length; i++)
-    {
-        <h4>@Model.VariantsTitle[i]</h4>
-        <p>@Html.Raw(Model.VariantDescription[i])</p>
-        <h4>@Model.VariantSpellsTitle[i]</h4>
-        <p>@Html.Raw(Model.VariantSpellsDescription[i])</p>
-    }
+<div class="about_race_container">
+    <div class="all_content_row">
+        <div class="upper_page_body">
+            <div class="upper_page_body_title">
+                <h1>@Model.Name</h1>
+            </div>
+            <div class="upper_page_body_from_book">
+                <h2>@Model.FromBook</h2>
+            </div>
+        </div>
+        <div class="content_litrature_description">
+            <p>@Html.Raw(Model.LitratureDescription)</p>
+        </div>
+        <div class="content_short_description">
+            <p>@Html.Raw(Model.ShortDescription)</p>
+        </div>
+        <div>
+            @for (int i = 0; i < Model.DescriptionTitle?.Length && i < Model.Description?.Length; i++)
+            {
+                <div class="content_title">
+                    <h4>@Model.DescriptionTitle[i].ToUpper()</h4>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.Description[i])</p>
+                </div>
+            }
+        </div>
+        <div>
+            <div class="content_title">
+                <h4>@Model.ClassCreationTitle.ToUpper()</h4>
+            </div>
+            <div class="content_text">
+                <p>@Html.Raw(Model.ClassCreationDescription)</p>
+            </div>
+            <div class="content_title">
+                <p>@Model.ClassCreationTableTitle.ToUpper()</p>
+            </div>
+            <div class="content_table">
+                <p>@Html.Raw(Model.ClassCreationTable)</p>
+            </div>
+        </div>
+        <div>
+            <div class="content_title">
+                <h4>БЫСТРОЕ СОЗДАНИЕ</h4>
+            </div>
+            <div class="content_text">
+                <p>@Html.Raw(Model.QuickBuild)</p>
+            </div>
+            <div class="content_title">
+                <h4>МУЛЬТИКЛАССИРОВАНИЕ И @Model.Name.ToUpper()</h4>
+            </div>
+            <div class="content_text">
+                <p>@Html.Raw(Model.Multiclass)</p>
+            </div>
+        </div>
+        <div>
+            <div class="content_title_without_border">
+                <h4>КЛАССОВЫЕ УМЕНИЯ</h4>
+            </div>
+            <div class="content_title">
+                <h4>ХИТЫ</h4>
+            </div>
+            <div class="content_text">
+                <p><b>Кость Хитов: </b>@Model.HitDice</p>
+            </div>
+            <div class="content_text">
+                <p><b>Хиты на 1 уровне: </b>@Model.HitPointsAtFirstLevel</p>
+            </div>
+            <div class="content_text">
+                <p><b>Хиты на следующих уровнях: </b>@Model.HitPointsAtHigherLevels</p>
+            </div>
+            <div class="content_title">
+                <h4>ВЛАДЕНИЕ</h4>
+            </div>
+            <div class="content_text">
+                <p><b>Доспехи: </b>@Model.Armor</p>
+            </div>
+            <div class="content_text">
+                <p><b>Оружие: </b>@Model.Weapons</p>
+            </div>
+            <div class="content_text">
+                <p><b>Инструменты: </b>@Model.Tools</p>
+            </div>
+            <div class="content_text">
+                <p><b>Спасброски: </b>@Model.SavingThrows</p>
+            </div>
+            <div class="content_text">
+                <p><b>Навыки: </b>@Model.Skills</p>
+            </div>
+            <div class="content_title">
+                <h4>СНАРЯЖЕНИЕ</h4>
+            </div>
+            <div class="content_text">
+                @for (int i = 0; i < Model.Equipment.Length; i++)
+                {
+                    <p>@Html.Raw(Model.Equipment[i])</p>
+                }
+            </div>
+        </div>
+        <div>
+            @if (Model.ClassSpellTitle != null || Model.ClassSpellDescription != null)
+            {
+                <div class="content_title_without_border">
+                    <h4>ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ</h4>
+                </div>
+            }
+            @for (int i = 0; i < Model.ClassSpellTitle?.Length && i < Model.ClassSpellDescription?.Length; i++)
+            {
+                <div class="content_title">
+                    <h4>@Model.ClassSpellTitle[i].ToUpper()</h4>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.ClassSpellDescription[i])</p>
+                </div>
+            }
+        </div>
+        <div>
+            <div class="content_title">
+                <h4>@Model.TypeTitle.ToUpper()</h4>
+            </div>
+            <div class="content_text">
+                <p>@Model.TypeDescriprion</p>
+            </div>
+            @for (int i = 0; i < Model.VariantsTitle?.Length && i < Model.VariantDescription?.Length && i < Model.VariantSpellsTitle?.Length && i < Model.VariantSpellsDescription?.Length; i++)
+            {
+                <div class="content_title">
+                    <h4>@Model.VariantsTitle[i].ToUpper()</h4>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.VariantDescription[i])</p>
+                </div>
+                <div class="content_title">
+                    <h4>@Model.VariantSpellsTitle[i].ToUpper()</h4>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.VariantSpellsDescription[i])</p>
+                </div>
+            }
+        </div>
+    </div>
 </div>

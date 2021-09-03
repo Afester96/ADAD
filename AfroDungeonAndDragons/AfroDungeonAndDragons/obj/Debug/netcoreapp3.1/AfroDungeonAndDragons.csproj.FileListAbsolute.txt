@@ -104,3 +104,4 @@ C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Backgrounds\AboutBackground.cshtml.g.cs
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Backgrounds\AllBackgrounds.cshtml.g.cs
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\AfroDungeonAndDragons.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutMainPage.cshtml.g.cs

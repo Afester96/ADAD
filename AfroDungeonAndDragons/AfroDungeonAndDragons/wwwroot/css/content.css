@@ -1,0 +1,207 @@
+﻿.all_content_row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.all_content_body {
+    background-color: #e6e6e6;
+    flex: 1 1 32%;
+    margin: 10px 5px;
+    border: solid 1px #c1c1c1
+}
+
+.all_content_body_title {
+    text-align: center;
+    font-family: 'Nodesto Cyrillic';
+    font-size: 40px;
+    letter-spacing: -1px;
+}
+
+    .all_content_body_title :link {
+        color: #bc0f0f;
+    }
+
+    .all_content_body_title :visited {
+        color: #bc0f0f;
+    }
+
+    .all_content_body_title :hover {
+        color: #bc0f0f;
+    }
+
+    .all_content_body_title :active {
+        color: #bc0f0f;
+    }
+
+.all_content_body_from_book {
+    font-size: 12px;
+    line-height: 24px;
+    padding: 2px 10px 0 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.all_content_body_description {
+    font-size: 14px;
+    line-height: 24px;
+    padding: 10px 10px;
+    text-align: justify;
+}
+
+.line_row {
+    margin: 0 5px;
+    display: flex;
+    max-width: fit-content;
+    box-shadow: 3px 1px 47px -3px rgba(71, 71, 71, 0.77);
+    border: solid 1px #c1c1c1;
+    border-radius: 7px;
+}
+
+.line_text{
+    margin: 3px;
+    padding: 3px 3px;
+    align-items:center;
+}
+
+.line_arrow {
+    margin: 3px 0;
+    padding: 0 17px;
+    background-image: url("../pictures/right-arrow.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+.all_background_content_row {
+    display: flex;
+    flex-direction: column;
+}
+
+.about_race_container {
+    background-color: #e7e6e4;
+    box-shadow: -15px 15px 15px 0px rgba(71, 71, 71, 0.77);
+    padding: 0 20px;
+    margin: 10px 0;
+    border: solid 1px #c1c1c1
+}
+
+.upper_page_body {
+    flex: 1 1 auto;
+}
+
+.upper_page_body_title {
+    text-align: center;
+    font-family: 'Nodesto Cyrillic';
+    font-size: 80px;
+    letter-spacing: 1px;
+    color: #bc0f0f;
+}
+
+.upper_page_body_from_book {
+    font-size: 12px;
+    line-height: 24px;
+    padding: 2px 10px 0 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content_litrature_description {
+    border: solid 1px #c1c1c1;
+    margin: 20px 180px;
+    padding: 20px 20px;
+    text-align: justify;
+    background-color: #f5f3f1;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.content_short_description {
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.content_title {
+    margin: 15px 0 0;
+    padding: 10px 0 0;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: justify;
+    border-bottom: solid 1px #bc0f0f;
+    font-weight: bold;
+}
+
+.content_text {
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.content_table {
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+}
+
+    .content_table table {
+        border-collapse: collapse;
+        border: 1px solid #bc0f0f;
+        display: inline-flex;
+    }
+
+    .content_table tr:nth-child(odd) {
+        background-color: #f5f3f1;
+    }
+
+    .content_table tr:nth-child(even) {
+        background-color: #e4e4e4;
+    }
+
+    .content_table td {
+        padding: 5px 4px;
+        border-bottom: solid 1px #bc0f0f;
+        text-align: center;
+    }
+
+.content_many_tables {
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 20px;
+    display:flex;
+    flex-direction: column;
+    margin: 0 60px;
+}
+
+    .content_many_tables table {
+        margin: 10px 0;
+        border-collapse: collapse;
+        flex: 1 1 auto;
+        border: 1px solid #bc0f0f;
+    }
+
+    .content_many_tables tr:nth-child(odd) {
+        background-color: #f5f3f1;
+    }
+
+    .content_many_tables tr:nth-child(even) {
+        background-color: #e4e4e4;
+    }
+
+    .content_many_tables td {
+        padding: 5px 4px;
+        border-bottom: solid 1px #bc0f0f;
+        text-align: center;
+    }
+
+.content_title_without_border {
+    margin: 20px 0 0;
+    font-size: 30px;
+    line-height: 20px;
+    text-align: justify;
+    font-weight: bold;
+}
