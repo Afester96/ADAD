@@ -2,13 +2,15 @@
 @{
     ViewBag.Title = "Удаление класса";
 }
-<div>
+<div class="content_delete_title">
     <h2>Вы точно хотите удалить класс: @Model.Name</h2>
 </div>
 <div>
-    <form asp-controller="ClassCreator" asp-action="DeleteClass" method="post">
-        <div class="form-group">
-            <input type="submit" class="btn btn-default" value="Удалить" />
-        </div>
-    </form>
+    <div class="content_input">
+        <form asp-controller="ClassCreator" asp-action="DeleteClass" method="post">
+            <div class="form-group">
+                <input type="submit" class="btn btn-default" value="Удалить" />
+            </div>
+        </form>
+    </div>
 </div>

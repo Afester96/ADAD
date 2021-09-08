@@ -2,132 +2,203 @@
 @{
     ViewBag.Title = @Model.Name;
 }
-<div>
-    <h2><b>@Model.Name</b></h2>
+<div class="line_row">
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        <a asp-controller="ClassCreator" asp-action="Classes">Классы</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        @Model.Name
+    </div>
 </div>
-@if (Model.LitratureDescription != null)
-{
-    <div>
-        <p>@Html.Raw(Model.LitratureDescription)</p>
-    </div>
-}
-<div>
-    <p>@Html.Raw(Model.ShortDescription)</p>
-</div>
-@if (Model.Description != null)
-{
-    <div>
-        <h4>Описание</h4>
-        <p>@Html.Raw(Model.Description)</p>
-    </div>
-}
-@if (Model.ClassCreationDescription != null || Model.ClassCreationTable != null)
-{
-    <div>
-        <h4>Создание класса @Model.Name</h4>
-        @if (Model.ClassCreationDescription != null)
+<div class="about_race_container">
+    <div class="all_content_row">
+        <div class="upper_page_body_title">
+            <h2><b>@Model.Name</b></h2>
+        </div>
+        @if (Model.LitratureDescription != null)
         {
-            <p>@Html.Raw(Model.ClassCreationDescription)</p>
+            <div class="content_litrature_description">
+                <p>@Html.Raw(Model.LitratureDescription)</p>
+            </div>
         }
-        @if (Model.ClassCreationTable != null)
+        <div class="content_short_description">
+            <p>@Html.Raw(Model.ShortDescription)</p>
+        </div>
+        @if (Model.Description != null)
         {
-            <p>@Html.Raw(Model.ClassCreationTable)</p>
+            <div>
+                <div class="content_title">
+                    <h4>ОПИСАНИЕ</h4>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.Description)</p>
+                </div>
+            </div>
         }
-    </div>
-}
-@if (Model.QuickBuild != null || Model.Multiclass != null)
-{
-    <div>
-        @if (Model.QuickBuild != null)
+        @if (Model.ClassCreationDescription != null || Model.ClassCreationTable != null)
         {
-            <h4>Быстрое создание</h4>
-            <p>@Html.Raw(Model.QuickBuild)</p>
+            <div>
+                <div class="content_title">
+                    <h4>СОЗДАНИЕ КЛАССА @Model.Name.ToUpper()</h4>
+                </div>
+                @if (Model.ClassCreationDescription != null)
+                {
+                    <div class="content_text">
+                        <p>@Html.Raw(Model.ClassCreationDescription)</p>
+                    </div>
+                }
+                @if (Model.ClassCreationTable != null)
+                {
+                    <div class="content_text">
+                        <p>@Html.Raw(Model.ClassCreationTable)</p>
+                    </div>
+                }
+            </div>
         }
-        @if (Model.Multiclass != null)
+        @if (Model.QuickBuild != null || Model.Multiclass != null)
         {
-            <h4>Мультиклассирование и @Model.Name</h4>
-            <p>@Html.Raw(Model.Multiclass)</p>
+            <div>
+                @if (Model.QuickBuild != null)
+                {
+                    <div class="content_title">
+                        <h4>БЫСТРОЕ СОЗДАНИЕ</h4>
+                    </div>
+                    <div class="content_text">
+                        <p>@Html.Raw(Model.QuickBuild)</p>
+                    </div>
+                }
+                @if (Model.Multiclass != null)
+                {
+                    <div class="content_title">
+                        <h4>МУЛЬТИКЛАССИРОВАНИЕ И @Model.Name.ToUpper()</h4>
+                    </div>
+                    <div class="content_text">
+                        <p>@Html.Raw(Model.Multiclass)</p>
+                    </div>
+                }
+            </div>
         }
-    </div>
-}
-@if (Model.HitDice != null || Model.HitPointsAtFirstLevel != null || Model.HitPointsAtHigherLevels != null || Model.Armor != null || Model.Weapons != null ||
-Model.Tools != null || Model.SavingThrows != null || Model.Skills != null || Model.Equipment != null)
-{
-    <div>
-        <h4>КЛАССОВЫЕ УМЕНИЯ</h4>
-        @if (Model.HitDice != null || Model.HitPointsAtFirstLevel != null || Model.HitPointsAtHigherLevels != null)
+        @if (Model.HitDice != null || Model.HitPointsAtFirstLevel != null || Model.HitPointsAtHigherLevels != null || Model.Armor != null || Model.Weapons != null ||
+     Model.Tools != null || Model.SavingThrows != null || Model.Skills != null || Model.Equipment != null)
         {
-            <h4>Хиты</h4>
-            @if (Model.HitDice != null)
-            {
-                <p><b>Кость Хитов: </b>@Model.HitDice</p>
-            }
-            @if (Model.HitPointsAtFirstLevel != null)
-            {
-                <p><b>Хиты на 1 уровне: </b>@Model.HitPointsAtFirstLevel</p>
-            }
-            @if (Model.HitPointsAtHigherLevels != null)
-            {
-                <p><b>Хиты на следующих уровнях: </b>@Model.HitPointsAtHigherLevels</p>
-            }
+            <div>
+                <div class="content_title_without_border">
+                    <h4>КЛАССОВЫЕ УМЕНИЯ</h4>
+                </div>
+                @if (Model.HitDice != null || Model.HitPointsAtFirstLevel != null || Model.HitPointsAtHigherLevels != null)
+                {
+                    <div class="content_title">
+                        <h4>ХИТЫ</h4>
+                    </div>
+                    @if (Model.HitDice != null)
+                    {
+                        <div class="content_text">
+                            <p><b>Кость Хитов: </b>@Model.HitDice</p>
+                        </div>
+                    }
+                    @if (Model.HitPointsAtFirstLevel != null)
+                    {
+                        <div class="content_text">
+                            <p><b>Хиты на 1 уровне: </b>@Model.HitPointsAtFirstLevel</p>
+                        </div>
+                    }
+                    @if (Model.HitPointsAtHigherLevels != null)
+                    {
+                        <div class="content_text">
+                            <p><b>Хиты на следующих уровнях: </b>@Model.HitPointsAtHigherLevels</p>
+                        </div>
+                    }
+                }
+                @if (Model.Armor != null || Model.Weapons != null || Model.Tools != null || Model.SavingThrows != null || Model.Skills != null || Model.Equipment != null)
+                {
+                    <div class="content_title">
+                        <h4>ВЛАДЕНИЕ</h4>
+                    </div>
+                    @if (Model.Armor != null)
+                    {
+                        <div class="content_text">
+                            <p><b>Доспехи: </b>@Model.Armor</p>
+                        </div>
+                    }
+                    @if (Model.Weapons != null)
+                    {
+                        <div class="content_text">
+                            <p><b>Оружие: </b>@Model.Weapons</p>
+                        </div>
+                    }
+                    @if (Model.Tools != null)
+                    {
+                        <div class="content_text">
+                            <p><b>Инструменты: </b>@Model.Tools</p>
+                        </div>
+                    }
+                    @if (Model.SavingThrows != null)
+                    {
+                        <div class="content_text">
+                            <p><b>Спасброски: </b>@Model.SavingThrows</p>
+                        </div>
+                    }
+                    @if (Model.Skills != null)
+                    {
+                        <div class="content_text">
+                            <p><b>Навыки: </b>@Model.Skills</p>
+                        </div>
+                    }
+                    @if (Model.Equipment != null)
+                    {
+                        <div class="content_title">
+                            <h4>СНАРЯЖЕНИЕ</h4>
+                        </div>
+                        <div class="content_text">
+                            <p>@Html.Raw(Model.Equipment)</p>
+                        </div>
+                    }
+                }
+            </div>
         }
-        @if (Model.Armor != null || Model.Weapons != null || Model.Tools != null || Model.SavingThrows != null || Model.Skills != null || Model.Equipment != null)
-        {
-            <h4>Владение</h4>
-            @if (Model.Armor != null)
-            {
-                <p><b>Доспехи: </b>@Model.Armor</p>
-            }
-            @if (Model.Weapons != null)
-            {
-                <p><b>Оружие: </b>@Model.Weapons</p>
-            }
-            @if (Model.Tools != null)
-            {
-                <p><b>Инструменты: </b>@Model.Tools</p>
-            }
-            @if (Model.SavingThrows != null)
-            {
-                <p><b>Спасброски: </b>@Model.SavingThrows</p>
-            }
-            @if (Model.Skills != null)
-            {
-                <p><b>Навыки: </b>@Model.Skills</p>
-            }
-            @if (Model.Equipment != null)
-            {
-                <h4>Снаряжение</h4>
-                <p>@Html.Raw(Model.Equipment)</p>
-            }
-        }
-    </div>
-}
 
-@if (Model.ClassSpells != null)
-{
-    <div>
-        <h4>ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ</h4>
-        <p>@Html.Raw(Model.ClassSpells)</p>
+        @if (Model.ClassSpells != null)
+        {
+            <div>
+                <div class="content_title">
+                    <h4>ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ</h4>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.ClassSpells)</p>
+                </div>
+            </div>
+        }
+        @if (Model.TypeTitle != null || Model.TypeDescriprion != null || Model.VariantDescription != null)
+        {
+            <div>
+                @if (Model.TypeTitle != null)
+                {
+                    <div class="content_title">
+                        <h4>@Model.TypeTitle.ToUpper()</h4>
+                    </div>
+                }
+                @if (Model.TypeDescriprion != null)
+                {
+                    <div class="content_text">
+                        <p>@Model.TypeDescriprion</p>
+                    </div>
+                }
+                @if (Model.VariantDescription != null)
+                {
+                    <div class="content_text">
+                        <p>@Html.Raw(Model.VariantDescription)</p>
+                    </div>
+                }
+            </div>
+        }
+        <div class="content_button_body">
+            <a asp-action="UpdateClass" asp-controller="ClassCreator" asp-route-id="@Model.Id">Изменить класс</a>
+            <a asp-action="DeleteClass" asp-controller="ClassCreator" asp-route-id="@Model.Id">Удалить класс</a>
+        </div>
     </div>
-}
-@if (Model.TypeTitle != null || Model.TypeDescriprion != null || Model.VariantDescription != null)
-{
-    <div>
-        @if (Model.TypeTitle != null)
-        {
-            <h4>@Model.TypeTitle</h4>
-        }
-        @if (Model.TypeDescriprion != null)
-        {
-            <p>@Model.TypeDescriprion</p>
-        }
-        @if (Model.VariantDescription != null)
-        {
-            <p>@Html.Raw(Model.VariantDescription)</p>
-        }
-    </div>
-}
-<div>
-    <a asp-action="UpdateClass" asp-controller="ClassCreator" asp-route-id="@Model.Id">Изменить класс</a>
-    <a asp-action="DeleteClass" asp-controller="ClassCreator" asp-route-id="@Model.Id">Удалить класс</a>
 </div>

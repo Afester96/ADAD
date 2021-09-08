@@ -1,0 +1,22 @@
+﻿@model AfroDungeonAndDragons.Models.MainPageNews.News
+@{
+    ViewBag.Title = $"Создание новости";
+}
+<form asp-controller="Home" asp-action="CreateNews" class="form_row">
+    <div class="form_group">
+        <label asp-for="NewsTitle">Заголовок новости</label>
+        <textarea asp-for="NewsTitle"></textarea>
+        <span asp-validation-for="NewsTitle"></span>
+    </div>
+    <div class="form_group">
+        <label asp-for="ShortNewsDescription">Краткое описание новости</label>
+        <textarea asp-for="ShortNewsDescription"></textarea>
+    </div>
+    <div class="form_group">
+        <label asp-for="NewsDescription">Описание новости</label>
+        <textarea asp-for="NewsDescription"></textarea>
+    </div>
+    <div class="content_button_body">
+        <input type="submit" value="Сохранить новость"/>
+    </div>
+</form>

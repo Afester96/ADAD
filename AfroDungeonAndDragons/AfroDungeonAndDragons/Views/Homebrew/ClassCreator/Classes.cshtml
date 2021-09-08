@@ -3,13 +3,32 @@
 @{
     ViewData["Title"] = "Классы";
 }
-<a asp-action="CreateClass">Создать класс</a>
-@foreach (var cl in Model)
-{
-    <div>
-        <p><a asp-action="AboutClass" asp-controller="ClassCreator" asp-route-id="@cl.Id">@cl.Name</a></p>
-        <p>@cl.ShortDescription</p>
-        <a asp-action="UpdateClass" asp-controller="ClassCreator" asp-route-id="@cl.Id">Изменить класс</a>
-        <a asp-action="DeleteClass" asp-controller="ClassCreator" asp-route-id="@cl.Id">Удалить класс</a>
+<div class="line_row">
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
     </div>
-}
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        <a asp-controller="ClassCreator" asp-action="Classes">Классы</a>
+    </div>
+</div>
+<div class="top_button_body">
+    <a asp-action="CreateClass">Создать класс</a>
+</div>
+<div class="all_background_content_row">
+    @foreach (var cl in Model)
+    {
+        <div class="all_content_body">
+            <div class="all_content_body_title">
+                <p><a asp-action="AboutClass" asp-controller="ClassCreator" asp-route-id="@cl.Id">@cl.Name</a></p>
+            </div>
+            <div class="all_content_body_description">
+                <p>@cl.ShortDescription</p>
+            </div>
+            <div class="content_button_body">
+                <a asp-action="UpdateClass" asp-controller="ClassCreator" asp-route-id="@cl.Id">Изменить класс</a>
+                <a asp-action="DeleteClass" asp-controller="ClassCreator" asp-route-id="@cl.Id">Удалить класс</a>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,15 @@
+﻿@model AfroDungeonAndDragons.Models.MainPageNews.News
+@{
+    ViewBag.Title = "Удаление новости";
+}
+
+<div class="content_delete_title">
+    <h2>Вы точно хотите удалить новость №@Model.Id: @Model.NewsTitle</h2>
+</div>
+<div>
+    <div class="content_input">
+        <form asp-controller="Home" asp-action="DeleteNews" method="post">
+            <input type="submit" class="btn btn-default" value="Удалить" />
+        </form>
+    </div>
+</div>

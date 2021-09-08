@@ -1,0 +1,33 @@
+﻿@model AfroDungeonAndDragons.Models.MainPageNews.News
+@{
+    ViewBag.Title = Model.Id;
+}
+<div class="line_row">
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="AllNews">Новости</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        Новость №@Model.Id
+    </div>
+</div>
+<div class="about_race_container">
+    <div class="all_background_content_row">
+        <div class="all_content_body_image">
+        </div>
+        <div class="upper_page_body_title">
+            @Model.NewsTitle
+        </div>
+        <div class="content_text">
+            @Html.Raw(Model.NewsDescription)
+        </div>
+        <div class="content_button_body">
+            <a asp-action="UpdateNews" asp-controller="Home" asp-route-id="@Model.Id">Изменить новость</a>
+            <a asp-action="DeleteNews" asp-controller="Home" asp-route-id="@Model.Id">Удалить новость</a>
+        </div>
+    </div>
+</div>

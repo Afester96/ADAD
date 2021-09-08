@@ -7,6 +7,7 @@ using AfroDungeonAndDragons.Models.CharacterCreator;
 using Microsoft.Extensions.Configuration;
 using AfroDungeonAndDragons.Data;
 using AfroDungeonAndDragons.Models.DefaultInformation;
+using AfroDungeonAndDragons.Models.MainPageNews;
 
 namespace AfroDungeonAndDragons.Models
 {
@@ -21,11 +22,14 @@ namespace AfroDungeonAndDragons.Models
         public DbSet<DefaultRace> DefaultRaces { get; set; }
         public DbSet<DefaultClass> DefaultClasses { get; set; }
         public DbSet<DefaultBackground> DefaultBackgrounds { get; set; }
+        public DbSet<News> News { get; set; }
+
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
             //Database.EnsureCreated();
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DefaultRace>().HasData(DefaultRaceList.GetRaceList());
@@ -50,6 +54,7 @@ namespace AfroDungeonAndDragons.Models
             DefaultRaceStringJoin(modelBuilder, dc => dc.SubraceFeatureTitle);
             DefaultRaceStringJoin(modelBuilder, dc => dc.SubraceFeatureDescription);
         }
+
         public static void DefaultClassStringJoin(ModelBuilder md, System.Linq.Expressions.Expression<Func<DefaultClass, string[]>> test)
         {
             md.Entity<DefaultClass>()

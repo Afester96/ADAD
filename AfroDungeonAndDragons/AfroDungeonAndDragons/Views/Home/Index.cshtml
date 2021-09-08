@@ -1,66 +1,101 @@
-﻿@{
+﻿@using AfroDungeonAndDragons.Models.MainPageNews
+@model List<News>
+@{
     Layout = "~/Views/Shared/_LayoutMainPage.cshtml";
     ViewData["Title"] = "Home Page";
 }
-
 <div class="main_page_content_row">
-    <div class="main_page_main_content">
-        <div class="main_page_main_content_body">
-            <div class="main_page_main_content_body_image">
-                <img src='@Url.Content("~/pictures/test.png")' />
-            </div>
-            <div class="main_page_main_content_body_title">
-                Блок первый титул
-            </div>
-            <div class="main_page_main_content_body_text">
-                Блок первый текст
-            </div>
-        </div>
-        <div class="main_page_main_content_body">
-            <div class="main_page_bottom_content_body_image">
-                <img src='@Url.Content("~/pictures/test.png")' />
-            </div>
-            <div class="main_page_main_content_body_title">
-                Блок второй титул
-            </div>
-            <div class="main_page_main_content_body_text">
-                Блок второй текст
-            </div>
-        </div>
+    <div class="button_body">
+        <a asp-action="CreateNews" asp-controller="Home">Создать новость</a>
+        <a asp-action="AllNews" asp-controller="Home">Все новости</a>
     </div>
-    <div class="main_page_bottom_content">
-        <div class="main_page_bottom_content_body">
-            <div class="main_page_bottom_content_body_image">
-                <img src='@Url.Content("~/pictures/test.png")' />
+    @if (Model.Count() > 0)
+    {
+        <div class="main_page_main_content">
+            <div class="main_page_main_content_body">
+                <div class="main_page_main_content_body_image">
+                    <img src='@Url.Content("~/pictures/test.png")' />
+                </div>
+                <div class="main_page_main_content_body_title">
+                    @Model.ElementAt(0).NewsTitle
+                </div>
+                <div class="main_page_main_content_body_text">
+                    @Model.ElementAt(0).ShortNewsDescription
+                </div>
+                <div class="button">
+                    <a asp-action="AboutNews" asp-controller="Home" asp-route-id="@Model.ElementAt(0).Id">Подробнее</a>
+                </div>
             </div>
-            <div class="main_page_bottom_content_body_title">
-                Блок третий титул
-            </div>
-            <div class="main_page_bottom_content_body_text">
-                Блок третий текст
-            </div>
+            @if (Model.Count() > 1)
+            {
+                <div class="main_page_main_content_body">
+                    <div class="main_page_bottom_content_body_image">
+                        <img src='@Url.Content("~/pictures/test.png")' />
+                    </div>
+                    <div class="main_page_main_content_body_title">
+                        @Model.ElementAt(1).NewsTitle
+                    </div>
+                    <div class="main_page_main_content_body_text">
+                        @Model.ElementAt(1).ShortNewsDescription
+                    </div>
+                    <div class="button">
+                        <a asp-action="AboutNews" asp-controller="Home" asp-route-id="@Model.ElementAt(1).Id">Подробнее</a>
+                    </div>
+                </div>
+            }
         </div>
-        <div class="main_page_bottom_content_body">
-            <div class="main_page_bottom_content_body_image">
-                <img src='@Url.Content("~/pictures/test.png")' />
-            </div>
-            <div class="main_page_bottom_content_body_title">
-                Блок четвёртый титул
-            </div>
-            <div class="main_page_bottom_content_body_text">
-                Блок четвёртый текст
-            </div>
+        <div class="main_page_bottom_content">
+            @if (Model.Count() > 2)
+            {
+                <div class="main_page_bottom_content_body">
+                    <div class="main_page_bottom_content_body_image">
+                        <img src='@Url.Content("~/pictures/test.png")' />
+                    </div>
+                    <div class="main_page_bottom_content_body_title">
+                        @Model.ElementAt(2).NewsTitle
+                    </div>
+                    <div class="main_page_bottom_content_body_text">
+                        @Model.ElementAt(2).ShortNewsDescription
+                    </div>
+                    <div class="button_bottom">
+                        <a asp-action="AboutNews" asp-controller="Home" asp-route-id="@Model.ElementAt(2).Id">Подробнее</a>
+                    </div>
+                </div>
+            }
+            @if (Model.Count() > 3)
+            {
+                <div class="main_page_bottom_content_body">
+                    <div class="main_page_bottom_content_body_image">
+                        <img src='@Url.Content("~/pictures/test.png")' />
+                    </div>
+                    <div class="main_page_bottom_content_body_title">
+                        @Model.ElementAt(3).NewsTitle
+                    </div>
+                    <div class="main_page_bottom_content_body_text">
+                        @Model.ElementAt(3).ShortNewsDescription
+                    </div>
+                    <div class="button_bottom">
+                        <a asp-action="AboutNews" asp-controller="Home" asp-route-id="@Model.ElementAt(3).Id">Подробнее</a>
+                    </div>
+                </div>
+            }
+            @if (Model.Count() > 4)
+            {
+                <div class="main_page_bottom_content_body">
+                    <div class="main_page_bottom_content_body_image">
+                        <img src='@Url.Content("~/pictures/test.png")' />
+                    </div>
+                    <div class="main_page_bottom_content_body_title">
+                        @Model.ElementAt(4).NewsTitle
+                    </div>
+                    <div class="main_page_bottom_content_body_text">
+                        @Model.ElementAt(4).ShortNewsDescription
+                    </div>
+                    <div class="button_bottom">
+                        <a asp-action="AboutNews" asp-controller="Home" asp-route-id="@Model.ElementAt(4).Id">Подробнее</a>
+                    </div>
+                </div>
+            }
         </div>
-        <div class="main_page_bottom_content_body">
-            <div class="main_page_bottom_content_body_image">
-                <img src='@Url.Content("~/pictures/test.png")' />
-            </div>
-            <div class="main_page_bottom_content_body_title">
-                Блок пятый титул
-            </div>
-            <div class="main_page_bottom_content_body_text">
-                Блок пятый текст
-            </div>
-        </div>
-    </div>
+    }
 </div>

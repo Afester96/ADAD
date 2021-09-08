@@ -3,57 +3,57 @@
     ViewBag.Title = "Изменение предыстории";
 }
 <form asp-action="UpdateBackground" asp-controller="BackgroundCreator">
-    <div class="form-group">
-        <label asp-for="Name" class="control-label">Название предыстории</label>
-        <input asp-for="Name" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="Name">Название предыстории</label>
+        <textarea asp-for="Name"></textarea>
         <span asp-validation-for="Name"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="Introduction" class="control-label">Описание</label>
-        <input asp-for="Introduction" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="Introduction">Описание</label>
+        <textarea asp-for="Introduction"></textarea>
         <span asp-validation-for="Introduction"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="SkillProficienciesDescription" class="control-label">Владение навыками</label>
-        <input asp-for="SkillProficienciesDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="SkillProficienciesDescription">Владение навыками</label>
+        <textarea asp-for="SkillProficienciesDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="ToolProficienciesDescription" class="control-label">Владение инструментами</label>
-        <input asp-for="ToolProficienciesDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="ToolProficienciesDescription">Владение инструментами</label>
+        <textarea asp-for="ToolProficienciesDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="LanguagesDescription" class="control-label">Языки</label>
-        <input asp-for="LanguagesDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="LanguagesDescription">Языки</label>
+        <textarea asp-for="LanguagesDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="EquipmentDescriptions" class="control-label">Снаряжение</label>
-        <input asp-for="EquipmentDescriptions" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="EquipmentDescriptions">Снаряжение</label>
+        <textarea asp-for="EquipmentDescriptions"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="BackgroundSpecificDescription" class="control-label">Спецификация</label>
-        <input asp-for="BackgroundSpecificDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="BackgroundSpecificDescription">Спецификация</label>
+        <textarea asp-for="BackgroundSpecificDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="FeatureDescription" class="control-label">Особенности</label>
-        <input asp-for="FeatureDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="FeatureDescription">Особенности</label>
+        <textarea asp-for="FeatureDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="SuggestedCharcteristicsDescription" class="control-label">Персонализация</label>
-        <input asp-for="SuggestedCharcteristicsDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="SuggestedCharcteristicsDescription">Персонализация</label>
+        <textarea asp-for="SuggestedCharcteristicsDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="SpellListIntroductionDescription" class="control-label">Краткий список заклинаний</label>
-        <input asp-for="SpellListIntroductionDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="SpellListIntroductionDescription">Краткий список заклинаний</label>
+        <textarea asp-for="SpellListIntroductionDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="SpellListExtendedDescription" class="control-label">Список заклинаний</label>
-        <input asp-for="SpellListExtendedDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="SpellListExtendedDescription">Список заклинаний</label>
+        <textarea asp-for="SpellListExtendedDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="BackgroundVariantDescription" class="control-label">Варианты предыстории</label>
-        <input asp-for="BackgroundVariantDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="BackgroundVariantDescription">Варианты предыстории</label>
+        <textarea asp-for="BackgroundVariantDescription"></textarea>
     </div>
-    <div class="form-group">
-        <input type="submit" value="Сохранить изменения" class="btn btn-default" />
+    <div class="content_button_body">
+        <input type="submit" value="Сохранить изменения"/>
     </div>
 </form>

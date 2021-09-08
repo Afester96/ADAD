@@ -12,14 +12,17 @@
 
 .main_page_main_content_body {
     box-shadow: 1px 10px 47px -15px rgba(71, 71, 71, 0.77);
-    flex: 1 1 auto;
+    flex: 1 1 300px;
     min-height: 400px;
-    margin: 0 10px;
+    margin: 0 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .main_page_main_content_body_image {
     height: 170px;
-    flex-grow: 1;
+    flex-shrink: 1;
 }
 
     .main_page_main_content_body_image img {
@@ -40,25 +43,28 @@
     font-size: 16px;
     line-height: 24px;
     padding: 30px 50px;
+    flex-grow: 1;
 }
 
 .main_page_bottom_content {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
     flex-wrap: wrap;
 }
 
 .main_page_bottom_content_body {
     box-shadow: 1px 10px 47px -15px rgba(71, 71, 71, 0.77);
-    flex: 1 1 auto;
+    flex: 1 1 300px;
     min-height: 400px;
-    margin: 0 10px;
+    margin: 0 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .main_page_bottom_content_body_image {
     height: 170px;
-    flex-grow: 1;
+    flex-shrink: 1;
 }
 
     .main_page_bottom_content_body_image img {
@@ -76,7 +82,62 @@
 
 .main_page_bottom_content_body_text {
     text-align: justify;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 20px;
     padding: 30px 50px;
+    flex-grow: 1;
 }
+
+.button {
+    margin: 0 5px 20px 0;
+    text-align: center;
+}
+
+    .button a {
+        padding: 5px;
+        max-width: fit-content;
+        border: solid 1px #c1c1c1;
+        font-size: 40px;
+        font-weight: bold;
+        color: #bc0f0f;
+    }
+
+        .button a:hover {
+            background-color: #e1e1e1
+        }
+
+.button_bottom {
+    margin: 0 5px 20px 0;
+    text-align: center;
+}
+
+    .button_bottom a {
+        padding: 5px;
+        max-width: fit-content;
+        border: solid 1px #c1c1c1;
+        font-size: 26px;
+        font-weight: bold;
+        color: #bc0f0f;
+    }
+
+        .button_bottom a:hover {
+            background-color: #e1e1e1
+        }
+
+.button_body {
+    margin: 0px 5px 20px;
+}
+
+    .button_body a {
+        margin: 0 5px;
+        padding: 5px;
+        max-width: fit-content;
+        border: solid 1px #c1c1c1;
+        font-size: 14px;
+        color: #bc0f0f;
+    }
+
+        .button_body a:hover {
+            background-color: #c6c6c6
+        }
+

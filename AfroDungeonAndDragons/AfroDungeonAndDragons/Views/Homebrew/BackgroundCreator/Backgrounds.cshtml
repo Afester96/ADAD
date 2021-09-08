@@ -3,14 +3,35 @@
 @{
     ViewBag.Title = "Список предысторий";
 }
-<a asp-action="CreateBackground">Создать предысторию</a>
-@foreach (var background in Model)
-{
-    <div>
-        <p><h3><b><a asp-action="AboutBackground" asp-controller="BackgroundCreator" asp-route-id="@background.Id">@background.Name</a></b></h3></p>
-        <p>@background.Introduction</p>
-        <p>@background.SpellListIntroductionDescription</p>
-        <a asp-action="UpdateBackground" asp-controller="BackgroundCreator" asp-route-id="@background.Id">Изменить предысторию</a>
-        <a asp-action="DeleteBackground" asp-controller="BackgroundCreator" asp-route-id="@background.Id">Удалить предысторию</a>
+<div class="line_row">
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
     </div>
-}
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        <a asp-controller="BackgroundCreator" asp-action="Backgrounds">Предыстории</a>
+    </div>
+</div>
+<div class="top_button_body">
+    <a asp-action="CreateBackground">Создать предысторию</a>
+</div>
+<div class="all_background_content_row">
+    @foreach (var background in Model)
+    {
+        <div class="all_content_body">
+            <div class="all_content_body_title">
+                <p><a asp-action="AboutBackground" asp-controller="BackgroundCreator" asp-route-id="@background.Id">@background.Name</a></p>
+            </div>
+            <div class="all_content_body_description">
+                <p>@background.Introduction</p>
+            </div>
+            <div class="all_content_body_description">
+                <p>@background.SpellListIntroductionDescription</p>
+            </div>
+            <div class="content_button_body">
+                <a asp-action="UpdateBackground" asp-controller="BackgroundCreator" asp-route-id="@background.Id">Изменить предысторию</a>
+                <a asp-action="DeleteBackground" asp-controller="BackgroundCreator" asp-route-id="@background.Id">Удалить предысторию</a>
+            </div>
+        </div>
+    }
+</div>

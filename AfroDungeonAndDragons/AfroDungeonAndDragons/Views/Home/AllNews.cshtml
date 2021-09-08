@@ -1,0 +1,58 @@
+﻿@using AfroDungeonAndDragons.Models.MainPageNews
+@model IndexViewModel
+@{
+    ViewBag.Title = "Список новостей";
+}
+<div class="line_row">
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="AllNews">Новости</a>
+    </div>
+</div>
+<div class="top_button_body">
+    <a asp-action="CreateNews">Создать новость</a>
+</div>
+<div class="all_background_content_row">
+    @foreach (var news in Model.News)
+    {
+        <div class="all_content_body">
+            <div class="all_content_body_image">
+
+            </div>
+            <div class="all_content_body_title">
+                <p><a asp-action="AboutNews" asp-controller="Home" asp-route-id="@news.Id">@news.NewsTitle</a></p>
+            </div>
+            <div class="all_content_body_description">
+                <p>@news.ShortNewsDescription</p>
+            </div>
+            <div class="content_button_body">
+                <a asp-action="UpdateNews" asp-controller="Home" asp-route-id="@news.Id">Изменить новость</a>
+                <a asp-action="DeleteNews" asp-controller="Home" asp-route-id="@news.Id">Удалить новость</a>
+            </div>
+        </div>
+    }
+    <div class="content_button_body">
+        @if (Model.PageViewModel.HasPreviousPage)
+        {
+
+            <a asp-action="AllNews"
+               asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+               class="btn btn-outline-dark">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Назад
+            </a>
+        }
+        @if (Model.PageViewModel.HasNextPage)
+        {
+            <a asp-action="AllNews"
+               asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+               class="btn btn-outline-dark">
+                Вперед
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </a>
+        }
+    </div>
+</div>

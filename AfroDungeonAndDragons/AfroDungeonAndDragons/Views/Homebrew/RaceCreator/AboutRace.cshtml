@@ -3,101 +3,158 @@
 @{
     ViewBag.Title = Model.Name;
 }
-<div>
-    <h1>@Model.Name</h1>
+<div class="line_row">
+    <div class="line_text">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        <a asp-controller="RaceCreator" asp-action="Races">Расы</a>
+    </div>
+    <div class="line_arrow"></div>
+    <div class="line_text">
+        @Model.Name
+    </div>
 </div>
-<div>
-    <p>@Model.ShortDescription</p>
-</div>
-@if (Model.LitratureDescription != null)
-{
-    <div>
-        <p>@Html.Raw(Model.LitratureDescription)</p>
+<div class="about_race_container">
+    <div class="all_content_row">
+        <div class="upper_page_body_title">
+            <h1>@Model.Name</h1>
+        </div>
+        @if (Model.LitratureDescription != null)
+        {
+            <div class="content_litrature_description">
+                <p>@Html.Raw(Model.LitratureDescription)</p>
+            </div>
+        }
+        <div class="content_short_description">
+            <p>@Model.ShortDescription</p>
+        </div>
+        @if (Model.Description != null)
+        {
+            <div>
+                <div class="content_title">
+                    <h2><b>ОПИСАНИЕ РАСЫ @Model.Name.ToUpper()</b></h2>
+                </div>
+                <div class="content_text">
+                    <p>@Html.Raw(Model.Description)</p>
+                </div>
+            </div>
+        }
+        @if (Model.NamesDescription != null || Model.NamesMan != null || Model.NamesFemale != null || Model.NamesClan != null)
+        {
+            <div>
+                <div class="content_title">
+                    <h2><b>ИМЕНА</b></h2>
+                </div>
+                @if (Model.NamesDescription != null)
+                {
+                    <div class="content_text">
+                        <p>@Html.Raw(Model.NamesDescription)</p>
+                    </div>
+                }
+                @if (Model.NamesMan != null)
+                {
+                    <div class="content_text">
+                        <p><b>МУЖСКИЕ ИМЕНА: </b>@Model.NamesMan</p>
+                    </div>
+                }
+                @if (Model.NamesFemale != null)
+                {
+                    <div class="content_text">
+                        <p><b>ЖЕНСКИЕ ИМЕНА: </b>@Model.NamesFemale</p>
+                    </div>
+                }
+                @if (Model.NamesClan != null)
+                {
+                    <div class="content_text">
+                        <p><b>НАЗВАНИЯ КЛАНОВ: </b>@Model.NamesClan</p>
+                    </div>
+                }
+            </div>
+        }
+        @if (Model.RacialTraitDescription != null || Model.RacialCharacteristics != null || Model.RacialAge != null || Model.RacialIdeology != null || Model.RaceSize != null || Model.RaceSpeed != null || Model.RacialSpellDescription != null || Model.RacialLanguages != null)
+        {
+            <div>
+                <div class="content_title">
+                    <p><h2><b>ОСОБЕННОСТИ РАСЫ</b></h2></p>
+                </div>
+                @if (Model.RacialTraitDescription != null)
+                {
+                    <div class="content_text">
+                        <p>@Html.Raw(Model.RacialTraitDescription)</p>
+                    </div>
+                }
+                @if (Model.RacialCharacteristics != null)
+                {
+                    <div class="content_text">
+                        <p><b>УВЕЛИЧЕНИЕ ХАРАКТЕРИСТИК: </b>@Model.RacialCharacteristics</p>
+                    </div>
+                }
+                @if (Model.RacialAge != null)
+                {
+                    <div class="content_text">
+                        <p><b>ВОЗРАСТ: </b>@Model.RacialAge</p>
+                    </div>
+                }
+                @if (Model.RacialIdeology != null)
+                {
+                    <div class="content_text">
+                        <p><b>МИРОВОЗЗРЕНИЕ: </b>@Model.RacialIdeology</p>
+                    </div>
+                }
+                @if (Model.RaceSize != null)
+                {
+                    <div class="content_text">
+                        <p><b>РАЗМЕР: </b>@Model.RaceSize</p>
+                    </div>
+                }
+                @if (Model.RaceSpeed != null)
+                {
+                    <div class="content_text">
+                        <p><b>СКОРОСТЬ: </b>@Model.RaceSpeed</p>
+                    </div>
+                }
+                @if (Model.RacialLanguages != null)
+                {
+                    <div class="content_text">
+                        <p><b>ЯЗЫКИ: </b>@Model.RacialLanguages</p>
+                    </div>
+                }
+                @if (Model.RacialSpellDescription != null)
+                {
+                    <div class="content_text">
+                        <p>@Html.Raw(Model.RacialSpellDescription)</p>
+                    </div>
+                }
+            </div>
+        }
+        @if (Model.SubraceDescription != null || Model.SubraceFeatureDescription != null)
+        {
+            <div>
+                <div class="content_title">
+                    <h2><b>РАЗНОВИДНОСТИ РАСЫ @Model.Name.ToUpper()</b></h2>
+                </div>
+                @if (Model.SubraceDescription != null)
+                {
+                    <div class="content_text">
+                        <p>@Html.Raw(Model.SubraceDescription)</p>
+                    </div>
+                }
+                @if (Model.SubraceFeatureDescription != null)
+                {
+                    <div class="content_title">
+                        <h2>УВЕЛИЧЕНИЕ ХАРАКТЕРИСТИК</h2>
+                    </div>
+                    <div class="content_text">
+                        <p>@Html.Raw(Model.SubraceFeatureDescription)</p>
+                    </div>
+                }
+            </div>
+        }
+        <div class="content_button_body">
+            <a asp-action="UpdateRace" asp-controller="RaceCreator" asp-route-id="@Model.Id">Изменить расу</a>
+            <a asp-action="DeleteRace" asp-controller="RaceCreator" asp-route-id="@Model.Id">Удалить расу</a>
+        </div>
     </div>
-}
-@if (Model.Description != null)
-{
-    <div>
-        <h2><b>Описание расы @Model.Name</b></h2>
-        <p>@Html.Raw(Model.Description)</p>
-    </div>
-}
-@if (Model.NamesDescription != null || Model.NamesMan != null || Model.NamesFemale != null || Model.NamesClan != null)
-{
-    <div>
-        <h2><b>Имена</b></h2>
-        @if (Model.NamesDescription != null)
-        {
-            <p>@Html.Raw(Model.NamesDescription)</p>
-        }
-        @if (Model.NamesMan != null)
-        {
-            <p><b>Мужские имена: </b>@Model.NamesMan</p>
-        }
-        @if (Model.NamesFemale != null)
-        {
-            <p><b>Женские имена: </b>@Model.NamesFemale</p>
-        }
-        @if (Model.NamesClan != null)
-        {
-            <p><b>Названия кланов: </b>@Model.NamesClan</p>
-        }
-    </div>
-}
-@if (Model.RacialTraitDescription != null || Model.RacialCharacteristics != null || Model.RacialAge != null || Model.RacialIdeology != null || Model.RaceSize != null || Model.RaceSpeed != null || Model.RacialSpellDescription != null || Model.RacialLanguages != null)
-{
-    <div>
-        <p><h2><b>Особенности расы</b></h2></p>
-        @if (Model.RacialTraitDescription != null)
-        {
-            <p>@Html.Raw(Model.RacialTraitDescription)</p>
-        }
-        @if (Model.RacialCharacteristics != null)
-        {
-            <p><b>Увеличение характеристик: </b>@Model.RacialCharacteristics</p>
-        }
-        @if (Model.RacialAge != null)
-        {
-            <p><b>Возраст: </b>@Model.RacialAge</p>
-        }
-        @if (Model.RacialIdeology != null)
-        {
-            <p><b>Мировоззрение: </b>@Model.RacialIdeology</p>
-        }
-        @if (Model.RaceSize != null)
-        {
-            <p><b>Размер: </b>@Model.RaceSize</p>
-        }
-        @if (Model.RaceSpeed != null)
-        {
-            <p><b>Скорость: </b>@Model.RaceSpeed</p>
-        }
-        @if (Model.RacialSpellDescription != null)
-        {
-            <p>@Html.Raw(Model.RacialSpellDescription)</p>
-        }
-        @if (Model.RacialLanguages != null)
-        {
-            <p><b>Языки: </b>@Model.RacialLanguages</p>
-        }
-    </div>
-}
-@if (Model.SubraceDescription != null || Model.SubraceFeatureDescription != null)
-{
-    <div>
-        <h2><b>Разновидности расы @Model.Name</b></h2>
-        @if (Model.SubraceDescription != null)
-        {
-            <p>@Html.Raw(Model.SubraceDescription)</p>
-        }
-        @if (Model.SubraceFeatureDescription != null)
-        {
-            <h2>Увеличение характеристик</h2>
-            <p>@Html.Raw(Model.SubraceFeatureDescription)</p>
-        }
-    </div>
-}
-<div>
-    <a asp-action="UpdateRace" asp-controller="RaceCreator" asp-route-id="@Model.Id">Изменить расу</a>
-    <a asp-action="DeleteRace" asp-controller="RaceCreator" asp-route-id="@Model.Id">Удалить расу</a>
 </div>

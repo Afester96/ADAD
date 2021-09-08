@@ -3,86 +3,86 @@
     ViewBag.Title = "Создание расы";
 }
 <form asp-action="CreateRace" asp-controller="RaceCreator">
-    <div class="form-group">
-        <label asp-for="Name" class="control-label">Название расы</label>
-        <input asp-for="Name" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="Name">Название расы</label>
+        <textarea asp-for="Name"></textarea>
         <span asp-validation-for="Name"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="ShortDescription" class="control-label">Краткое описание</label>
-        <input asp-for="ShortDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="ShortDescription">Краткое описание</label>
+        <textarea asp-for="ShortDescription"></textarea>
         <span asp-validation-for="ShortDescription"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="LitratureDescription" class="control-label">Литературное описание</label>
-        <input asp-for="LitratureDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="LitratureDescription">Литературное описание</label>
+        <textarea asp-for="LitratureDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="Description" class="control-label">Описание</label>
-        <input asp-for="Description" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="Description">Описание</label>
+        <textarea asp-for="Description"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="NamesDescription" class="control-label">Описание имён</label>
-        <input asp-for="NamesDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="NamesDescription">Описание имён</label>
+        <textarea asp-for="NamesDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="NamesMan" class="control-label">Мужские имена</label>
-        <input asp-for="NamesMan" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="NamesMan">Мужские имена</label>
+        <textarea asp-for="NamesMan"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="NamesFemale" class="control-label">Женские имена</label>
-        <input asp-for="NamesFemale" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="NamesFemale">Женские имена</label>
+        <textarea asp-for="NamesFemale"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="NamesClan" class="control-label">Названия кланов</label>
-        <input asp-for="NamesClan" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="NamesClan">Названия кланов</label>
+        <textarea asp-for="NamesClan"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="ShortRacialTraitDescription" class="control-label">Краткое описание особенностей</label>
-        <input asp-for="ShortRacialTraitDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="ShortRacialTraitDescription">Краткое описание особенностей</label>
+        <textarea asp-for="ShortRacialTraitDescription"></textarea>
         <span asp-validation-for="ShortRacialTraitDescription"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="RacialTraitDescription" class="control-label">Описание особенностей</label>
-        <input asp-for="RacialTraitDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="RacialTraitDescription">Описание особенностей</label>
+        <textarea asp-for="RacialTraitDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="RacialCharacteristics" class="control-label">Увеличение характеристик</label>
-        <input asp-for="RacialCharacteristics" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="RacialCharacteristics">Увеличение характеристик</label>
+        <textarea asp-for="RacialCharacteristics"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="RacialAge" class="control-label">Возраст</label>
-        <input asp-for="RacialAge" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="RacialAge">Возраст</label>
+        <textarea asp-for="RacialAge"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="RacialIdeology" class="control-label">Мировозрение</label>
-        <input asp-for="RacialIdeology" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="RacialIdeology">Мировозрение</label>
+        <textarea asp-for="RacialIdeology"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="RaceSize" class="control-label">Размер</label>
-        <input asp-for="RaceSize" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="RaceSize">Размер</label>
+        <textarea asp-for="RaceSize"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="RaceSpeed" class="control-label">Скорость</label>
-        <input asp-for="RaceSpeed" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="RaceSpeed">Скорость</label>
+        <textarea asp-for="RaceSpeed"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="RacialLanguages" class="control-label">Языки</label>
-        <input asp-for="RacialLanguages" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="RacialLanguages">Языки</label>
+        <textarea asp-for="RacialLanguages"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="RacialSpellDescription" class="control-label">Описание способностей</label>
-        <input asp-for="RacialSpellDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="RacialSpellDescription">Описание способностей</label>
+        <textarea asp-for="RacialSpellDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="SubraceDescription" class="control-label">Описание подрас</label>
-        <input asp-for="SubraceDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="SubraceDescription">Описание подрас</label>
+        <textarea asp-for="SubraceDescription"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="SubraceFeatureDescription" class="control-label">Особенности подрас</label>
-        <input asp-for="SubraceFeatureDescription" class="form-control" type="text" />
+    <div class="form_group">
+        <label asp-for="SubraceFeatureDescription">Особенности подрас</label>
+        <textarea asp-for="SubraceFeatureDescription"></textarea>
     </div>
-    <div class="form-group">
-        <input type="submit" value="Сохранить расу" class="btn btn-default" />
+    <div class="content_button_body">
+        <input type="submit" value="Сохранить расу"/>
     </div>
 </form>
