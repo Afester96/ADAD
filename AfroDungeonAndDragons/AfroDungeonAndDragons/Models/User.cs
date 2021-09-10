@@ -25,9 +25,6 @@ namespace AfroDungeonAndDragons.Models
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Пароль должен состоять из 3-50 символов")]
         public string Password { get; set; }
         
-        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
-        public string PasswordConfirm { get; set; }
-        
         public List<Character> Characters { get; set; }
         public User()
         {

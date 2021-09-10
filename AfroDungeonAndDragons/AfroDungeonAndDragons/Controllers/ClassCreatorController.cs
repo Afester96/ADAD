@@ -1,5 +1,6 @@
 ﻿using AfroDungeonAndDragons.Models;
 using AfroDungeonAndDragons.Models.CharacterCreator;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,14 +17,19 @@ namespace AfroDungeonAndDragons.Controllers
         {
             db = context;
         }
+
         public async Task<IActionResult> Classes()
         {
             return View("../Homebrew/ClassCreator/Classes", await db.Classes.ToListAsync());
         }
+
+        [Authorize]
         public IActionResult CreateClass()
         {
             return View("../Homebrew/ClassCreator/CreateClass");
         }
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateClass(Class classCreator)
         {
@@ -36,6 +42,7 @@ namespace AfroDungeonAndDragons.Controllers
             else
                 return View("../Homebrew/ClassCreator/CreateClass");
         }
+
         public async Task<IActionResult> AboutClass(int? id)
         {
             if (id != null)
@@ -45,6 +52,8 @@ namespace AfroDungeonAndDragons.Controllers
             }
             return NotFound();
         }
+
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> UpdateClass(int? id)
         {
@@ -58,6 +67,8 @@ namespace AfroDungeonAndDragons.Controllers
             }
             return NotFound();
         }
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> UpdateClass(Class classCreator)
         {
@@ -70,6 +81,8 @@ namespace AfroDungeonAndDragons.Controllers
             else
                 return View("../Homebrew/ClassCreator/UpdateClass");
         }
+
+        [Authorize]
         [HttpGet]
         [ActionName("DeleteClass")]
         public async Task<IActionResult> ConfirmDeleteClass(int? id)
@@ -84,6 +97,8 @@ namespace AfroDungeonAndDragons.Controllers
             }
             return NotFound();
         }
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> DeleteClass(int? id)
         {

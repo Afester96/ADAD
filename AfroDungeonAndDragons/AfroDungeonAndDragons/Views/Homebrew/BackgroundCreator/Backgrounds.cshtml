@@ -28,10 +28,13 @@
             <div class="all_content_body_description">
                 <p>@background.SpellListIntroductionDescription</p>
             </div>
-            <div class="content_button_body">
-                <a asp-action="UpdateBackground" asp-controller="BackgroundCreator" asp-route-id="@background.Id">Изменить предысторию</a>
-                <a asp-action="DeleteBackground" asp-controller="BackgroundCreator" asp-route-id="@background.Id">Удалить предысторию</a>
-            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="content_button_body">
+                    <a asp-action="UpdateBackground" asp-controller="BackgroundCreator" asp-route-id="@background.Id">Изменить предысторию</a>
+                    <a asp-action="DeleteBackground" asp-controller="BackgroundCreator" asp-route-id="@background.Id">Удалить предысторию</a>
+                </div>
+            }
         </div>
     }
 </div>

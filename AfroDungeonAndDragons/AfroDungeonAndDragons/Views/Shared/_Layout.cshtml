@@ -27,13 +27,22 @@
                         </a>
                     </div>
                     <div class="header_account">
-                        <button class="header_account_dropbtn">Аккаунт</button>
-                        <div class="header_account_dropdown_content">
-                            @Html.ActionLink("Профиль", "", "")
-                            @Html.ActionLink("Аккаунт", "", "")
-                            @Html.ActionLink("Персонажи", "", "")
-                            @Html.ActionLink("Выйти", "", "")
-                        </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <button class="header_account_dropbtn">@User.Identity.Name</button>
+                            <div class="header_account_dropdown_content">
+                                @Html.ActionLink("Профиль", "", "")
+                                @Html.ActionLink("Аккаунт", "", "")
+                                @Html.ActionLink("Персонажи", "", "")
+                                @Html.ActionLink("Выйти", "Logout", "Account")
+                            </div>}
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <button class="header_account_dropbtn">Аутентификация</button>
+                            <div class="header_account_dropdown_content">
+                                @Html.ActionLink("Регистрация", "Register", "Account")
+                                @Html.ActionLink("Авторизация", "Login", "Account")
+                            </div>}
                     </div>
                 </div>
             </div>
@@ -52,9 +61,9 @@
                     <div class="menu_body">
                         <button class="menu_dropbtn">Кастомные игровые правила</button>
                         <div class="menu_dropdown_content">
-                            @Html.ActionLink("Создать расу", "Races", "RaceCreator")
-                            @Html.ActionLink("Создать класс", "Classes", "ClassCreator")
-                            @Html.ActionLink("Создать предысторию", "Backgrounds", "BackgroundCreator")
+                            @Html.ActionLink("Кастомные расы", "Races", "RaceCreator")
+                            @Html.ActionLink("Кастомные классы", "Classes", "ClassCreator")
+                            @Html.ActionLink("Кастомные предыстории", "Backgrounds", "BackgroundCreator")
                         </div>
                     </div>
                 </div>

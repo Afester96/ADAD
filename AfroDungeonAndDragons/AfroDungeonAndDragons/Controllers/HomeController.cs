@@ -1,5 +1,6 @@
 ﻿using AfroDungeonAndDragons.Models;
 using AfroDungeonAndDragons.Models.MainPageNews;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -43,17 +44,15 @@ namespace AfroDungeonAndDragons.Controllers
                 News = items
             };
             return View(viewModel);
-
-            //List<News> list = await db.News.ToListAsync();
-            //list.Reverse();
-            //return View(list);
         }
-        
+
+        [Authorize]
         public IActionResult CreateNews()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateNews(News news)
         {
@@ -67,6 +66,7 @@ namespace AfroDungeonAndDragons.Controllers
                 return View();
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> UpdateNews(int? id)
         {
@@ -81,6 +81,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> UpdateNews(News news)
         {
@@ -94,6 +95,7 @@ namespace AfroDungeonAndDragons.Controllers
                 return View(news);
         }
 
+        [Authorize]
         [HttpGet]
         [ActionName("DeleteNews")]
         public async Task<IActionResult> ConfirmDeleteNews(int? id)
@@ -109,6 +111,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> DeleteNews(int? id)
         {

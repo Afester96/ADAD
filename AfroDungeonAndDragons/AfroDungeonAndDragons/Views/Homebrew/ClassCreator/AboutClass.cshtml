@@ -84,7 +84,7 @@
             </div>
         }
         @if (Model.HitDice != null || Model.HitPointsAtFirstLevel != null || Model.HitPointsAtHigherLevels != null || Model.Armor != null || Model.Weapons != null ||
-     Model.Tools != null || Model.SavingThrows != null || Model.Skills != null || Model.Equipment != null)
+   Model.Tools != null || Model.SavingThrows != null || Model.Skills != null || Model.Equipment != null)
         {
             <div>
                 <div class="content_title_without_border">
@@ -196,9 +196,12 @@
                 }
             </div>
         }
-        <div class="content_button_body">
-            <a asp-action="UpdateClass" asp-controller="ClassCreator" asp-route-id="@Model.Id">Изменить класс</a>
-            <a asp-action="DeleteClass" asp-controller="ClassCreator" asp-route-id="@Model.Id">Удалить класс</a>
-        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="content_button_body">
+                <a asp-action="UpdateClass" asp-controller="ClassCreator" asp-route-id="@Model.Id">Изменить класс</a>
+                <a asp-action="DeleteClass" asp-controller="ClassCreator" asp-route-id="@Model.Id">Удалить класс</a>
+            </div>
+        }
     </div>
 </div>

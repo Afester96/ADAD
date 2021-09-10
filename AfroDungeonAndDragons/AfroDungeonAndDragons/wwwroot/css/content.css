@@ -1,6 +1,6 @@
 ﻿.all_content_row {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -60,10 +60,10 @@
     border-radius: 7px;
 }
 
-.line_text{
+.line_text {
     margin: 3px;
     padding: 3px 3px;
-    align-items:center;
+    align-items: center;
 }
 
 .line_arrow {
@@ -174,7 +174,7 @@
     padding: 10px 0;
     font-size: 16px;
     line-height: 20px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     margin: 0 60px;
 }
@@ -238,6 +238,7 @@
         font-size: 14px;
         color: #bc0f0f;
     }
+
         .content_button_body a:hover {
             background-color: #c6c6c6
         }
@@ -289,6 +290,7 @@
         color: #bc0f0f;
         font-weight: bold;
     }
+
         .content_input input:hover {
             background-color: #c6c6c6
         }
@@ -329,4 +331,36 @@
         color: #bc0f0f;
         font-weight: bold;
         text-align: center;
+    }
+
+    .form_group input {
+        margin: 10px 10px;
+    }
+
+.registration_group {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 10px 0 0;
+}
+
+    .registration_group label {
+        margin: 10px;
+        padding: 10px 0 0;
+        font-size: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .registration_group span {
+        margin: 5px 5px;
+        font-size: 20px;
+        color: #bc0f0f;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .registration_group input {
+        padding: 10px 15px;
     }

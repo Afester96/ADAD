@@ -1,5 +1,6 @@
 ﻿using AfroDungeonAndDragons.Models;
 using AfroDungeonAndDragons.Models.CharacterCreator;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,14 +17,19 @@ namespace AfroDungeonAndDragons.Controllers
         {
             db = context;
         }
+
         public async Task<IActionResult> Backgrounds()
         {
             return View("../Homebrew/BackgroundCreator/Backgrounds", await db.Backgrounds.ToListAsync());
         }
+
+        [Authorize]
         public IActionResult CreateBackground()
         {
             return View("../Homebrew/BackgroundCreator/CreateBackground");
         }
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateBackground(Background background)
         {
@@ -46,6 +52,8 @@ namespace AfroDungeonAndDragons.Controllers
             }
             return NotFound();
         }
+
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> UpdateBackground(int? id)
         {
@@ -59,6 +67,8 @@ namespace AfroDungeonAndDragons.Controllers
             }
             return NotFound();
         }
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> UpdateBackground(Background background)
         {
@@ -71,6 +81,8 @@ namespace AfroDungeonAndDragons.Controllers
             else
                 return View("../Homebrew/BackgroundCreator/UpdateBackground");
         }
+
+        [Authorize]
         [HttpGet]
         [ActionName("DeleteBackground")]
         public async Task<IActionResult> ConfirmDeleteBackground(int? id)
@@ -85,6 +97,8 @@ namespace AfroDungeonAndDragons.Controllers
             }
             return NotFound();
         }
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> DeleteBackground(int? id)
         {

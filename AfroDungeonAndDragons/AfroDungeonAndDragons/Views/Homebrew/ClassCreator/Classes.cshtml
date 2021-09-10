@@ -25,10 +25,13 @@
             <div class="all_content_body_description">
                 <p>@cl.ShortDescription</p>
             </div>
-            <div class="content_button_body">
-                <a asp-action="UpdateClass" asp-controller="ClassCreator" asp-route-id="@cl.Id">Изменить класс</a>
-                <a asp-action="DeleteClass" asp-controller="ClassCreator" asp-route-id="@cl.Id">Удалить класс</a>
-            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="content_button_body">
+                    <a asp-action="UpdateClass" asp-controller="ClassCreator" asp-route-id="@cl.Id">Изменить класс</a>
+                    <a asp-action="DeleteClass" asp-controller="ClassCreator" asp-route-id="@cl.Id">Удалить класс</a>
+                </div>
+            }
         </div>
     }
 </div>

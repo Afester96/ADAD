@@ -1,0 +1,25 @@
+﻿@model AfroDungeonAndDragons.ViewModels.LoginModel
+@{
+    ViewBag.Title = "Авторизация";
+}
+<form asp-action="Login" asp-controller="Account" asp-anti-forgery="true" class="form_row">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div>
+        <div class="registration_group">
+            <label asp-for="Login">Введите логин</label>
+            <input type="text" asp-for="Login" />
+            <span asp-validation-for="Login" />
+        </div>
+        <div class="registration_group">
+            <label asp-for="Password">Введите пароль</label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password" />
+        </div>
+        <div class="content_button_body">
+            <input type="submit" value="Войти" class="btn btn-outline-dark" />
+        </div>
+        <div class="content_button_body">
+            <a asp-action="Register" asp-controller="Account">Регистрация</a>
+        </div>
+    </div>
+</form>

@@ -1,5 +1,6 @@
 ﻿using AfroDungeonAndDragons.Models;
 using AfroDungeonAndDragons.Models.CharacterCreator;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,14 +17,19 @@ namespace AfroDungeonAndDragons.Controllers
         {
             db = context;
         }
+
         public async Task<IActionResult> Races()
         {
             return View("../Homebrew/RaceCreator/Races", await db.Races.ToListAsync());
         }
+
+        [Authorize]
         public IActionResult CreateRace()
         {
             return View("../Homebrew/RaceCreator/CreateRace");
         }
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateRace(Race race)
         {
@@ -36,6 +42,7 @@ namespace AfroDungeonAndDragons.Controllers
             else
                 return View("../Homebrew/RaceCreator/CreateRace");
         }
+
         public async Task<IActionResult> AboutRace(int? id)
         {
             if (id != null)
@@ -45,6 +52,8 @@ namespace AfroDungeonAndDragons.Controllers
             }
             return NotFound();
         }
+
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> UpdateRace(int? id)
         {
@@ -58,6 +67,8 @@ namespace AfroDungeonAndDragons.Controllers
             }
             return NotFound();
         }
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> UpdateRace(Race race)
         {
@@ -70,6 +81,8 @@ namespace AfroDungeonAndDragons.Controllers
             else
                 return View("../Homebrew/RaceCreator/UpdateRace");
         }
+
+        [Authorize]
         [HttpGet]
         [ActionName("DeleteRace")]
         public async Task<IActionResult> ConfirmDeleteRace(int? id)
@@ -84,6 +97,8 @@ namespace AfroDungeonAndDragons.Controllers
             }
             return NotFound();
         }
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> DeleteRace(int? id)
         {

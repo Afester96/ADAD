@@ -109,3 +109,5 @@ C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Home\CreateNews.cshtml.g.cs
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Home\DeleteNews.cshtml.g.cs
 C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Home\UpdateNews.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Afest\Repositories\ADAD\AfroDungeonAndDragons\AfroDungeonAndDragons\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs

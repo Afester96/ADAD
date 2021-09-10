@@ -152,9 +152,12 @@
                 }
             </div>
         }
-        <div class="content_button_body">
-            <a asp-action="UpdateRace" asp-controller="RaceCreator" asp-route-id="@Model.Id">Изменить расу</a>
-            <a asp-action="DeleteRace" asp-controller="RaceCreator" asp-route-id="@Model.Id">Удалить расу</a>
-        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="content_button_body">
+                <a asp-action="UpdateRace" asp-controller="RaceCreator" asp-route-id="@Model.Id">Изменить расу</a>
+                <a asp-action="DeleteRace" asp-controller="RaceCreator" asp-route-id="@Model.Id">Удалить расу</a>
+            </div>
+        }
     </div>
 </div>
