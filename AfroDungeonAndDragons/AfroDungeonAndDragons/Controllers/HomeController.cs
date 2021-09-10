@@ -46,13 +46,13 @@ namespace AfroDungeonAndDragons.Controllers
             return View(viewModel);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult CreateNews()
         {
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateNews(News news)
         {
@@ -66,7 +66,7 @@ namespace AfroDungeonAndDragons.Controllers
                 return View();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> UpdateNews(int? id)
         {
@@ -81,7 +81,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> UpdateNews(News news)
         {
@@ -95,7 +95,7 @@ namespace AfroDungeonAndDragons.Controllers
                 return View(news);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [ActionName("DeleteNews")]
         public async Task<IActionResult> ConfirmDeleteNews(int? id)
@@ -111,7 +111,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> DeleteNews(int? id)
         {

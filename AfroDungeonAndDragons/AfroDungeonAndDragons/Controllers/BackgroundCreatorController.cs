@@ -23,13 +23,13 @@ namespace AfroDungeonAndDragons.Controllers
             return View("../Homebrew/BackgroundCreator/Backgrounds", await db.Backgrounds.ToListAsync());
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         public IActionResult CreateBackground()
         {
             return View("../Homebrew/BackgroundCreator/CreateBackground");
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpPost]
         public async Task<IActionResult> CreateBackground(Background background)
         {
@@ -53,7 +53,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpGet]
         public async Task<IActionResult> UpdateBackground(int? id)
         {
@@ -68,7 +68,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpPost]
         public async Task<IActionResult> UpdateBackground(Background background)
         {
@@ -82,7 +82,7 @@ namespace AfroDungeonAndDragons.Controllers
                 return View("../Homebrew/BackgroundCreator/UpdateBackground");
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpGet]
         [ActionName("DeleteBackground")]
         public async Task<IActionResult> ConfirmDeleteBackground(int? id)
@@ -98,7 +98,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpPost]
         public async Task<IActionResult> DeleteBackground(int? id)
         {

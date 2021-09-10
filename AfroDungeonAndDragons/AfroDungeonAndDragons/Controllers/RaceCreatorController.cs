@@ -23,13 +23,13 @@ namespace AfroDungeonAndDragons.Controllers
             return View("../Homebrew/RaceCreator/Races", await db.Races.ToListAsync());
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         public IActionResult CreateRace()
         {
             return View("../Homebrew/RaceCreator/CreateRace");
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpPost]
         public async Task<IActionResult> CreateRace(Race race)
         {
@@ -53,7 +53,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpGet]
         public async Task<IActionResult> UpdateRace(int? id)
         {
@@ -68,7 +68,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpPost]
         public async Task<IActionResult> UpdateRace(Race race)
         {
@@ -82,7 +82,7 @@ namespace AfroDungeonAndDragons.Controllers
                 return View("../Homebrew/RaceCreator/UpdateRace");
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpGet]
         [ActionName("DeleteRace")]
         public async Task<IActionResult> ConfirmDeleteRace(int? id)
@@ -98,7 +98,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpPost]
         public async Task<IActionResult> DeleteRace(int? id)
         {

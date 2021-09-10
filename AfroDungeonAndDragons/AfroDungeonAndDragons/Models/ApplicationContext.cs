@@ -23,6 +23,7 @@ namespace AfroDungeonAndDragons.Models
         public DbSet<DefaultClass> DefaultClasses { get; set; }
         public DbSet<DefaultBackground> DefaultBackgrounds { get; set; }
         public DbSet<News> News { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
@@ -53,6 +54,21 @@ namespace AfroDungeonAndDragons.Models
             DefaultRaceStringJoin(modelBuilder, dc => dc.SubraceTrait);
             DefaultRaceStringJoin(modelBuilder, dc => dc.SubraceFeatureTitle);
             DefaultRaceStringJoin(modelBuilder, dc => dc.SubraceFeatureDescription);
+
+            string adminRoleName = "Admin";
+            string userRoleName = "User";
+
+            string adminLogin = "Admin";
+            string adminEmail = "admin@mail.ru";
+            string adminPassword = "12345";
+
+            Role adminRole = new Role { Id = 1, Name = adminRoleName };
+            Role userRole = new Role { Id = 2, Name = userRoleName };
+            User adminUser = new User { Id = 1, Login = adminLogin, Email = adminEmail, Password = adminPassword, RoleId = adminRole.Id };
+
+            modelBuilder.Entity<Role>().HasData(new Role[] { adminRole, userRole });
+            modelBuilder.Entity<User>().HasData(new User[] { adminUser });
+            base.OnModelCreating(modelBuilder);
         }
 
         public static void DefaultClassStringJoin(ModelBuilder md, System.Linq.Expressions.Expression<Func<DefaultClass, string[]>> test)

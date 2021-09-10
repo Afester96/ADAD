@@ -24,7 +24,10 @@ namespace AfroDungeonAndDragons.Models
         [RegularExpression(@"^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$", ErrorMessage = "Некорректный логин")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Пароль должен состоять из 3-50 символов")]
         public string Password { get; set; }
-        
+
+        public int? RoleId { get; set; }
+        public Role Role { get; set; }
+
         public List<Character> Characters { get; set; }
         public User()
         {

@@ -34,10 +34,12 @@ namespace AfroDungeonAndDragons.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Login && u.Password == model.Password);
+                User user = await db.Users
+                    .Include(u => u.Role)
+                    .FirstOrDefaultAsync(u => u.Login == model.Login && u.Password == model.Password);
                 if (user != null)
                 {
-                    await Authenticate(model.Login); 
+                    await Authenticate(user); 
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -61,10 +63,15 @@ namespace AfroDungeonAndDragons.Controllers
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
                 if (user == null)
                 {
-                    db.Users.Add(new User { Login = model.Login, Email = model.Email, Password = model.Password });
+                    user = new User { Login = model.Login, Email = model.Email, Password = model.Password };
+                    Role userRole = await db.Roles.FirstOrDefaultAsync(r => r.Name == "User");
+                    if (userRole != null)
+                        user.Role = userRole;
+
+                    db.Users.Add(user);
                     await db.SaveChangesAsync();
 
-                    await Authenticate(model.Login);
+                    await Authenticate(user);
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -74,11 +81,12 @@ namespace AfroDungeonAndDragons.Controllers
             return View(model);
         }
 
-        private async Task Authenticate(string userName)
+        private async Task Authenticate(User user)
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Login),
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role?.Name)
             };
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));

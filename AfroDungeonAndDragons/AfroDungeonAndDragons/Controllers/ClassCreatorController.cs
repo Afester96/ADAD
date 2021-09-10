@@ -23,13 +23,13 @@ namespace AfroDungeonAndDragons.Controllers
             return View("../Homebrew/ClassCreator/Classes", await db.Classes.ToListAsync());
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         public IActionResult CreateClass()
         {
             return View("../Homebrew/ClassCreator/CreateClass");
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpPost]
         public async Task<IActionResult> CreateClass(Class classCreator)
         {
@@ -53,7 +53,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpGet]
         public async Task<IActionResult> UpdateClass(int? id)
         {
@@ -68,7 +68,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpPost]
         public async Task<IActionResult> UpdateClass(Class classCreator)
         {
@@ -82,7 +82,7 @@ namespace AfroDungeonAndDragons.Controllers
                 return View("../Homebrew/ClassCreator/UpdateClass");
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpGet]
         [ActionName("DeleteClass")]
         public async Task<IActionResult> ConfirmDeleteClass(int? id)
@@ -98,7 +98,7 @@ namespace AfroDungeonAndDragons.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         [HttpPost]
         public async Task<IActionResult> DeleteClass(int? id)
         {
