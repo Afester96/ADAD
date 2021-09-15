@@ -26,5 +26,8 @@ namespace AfroDungeonAndDragons.Models.CharacterCreator
         public int Intelligence { get; set; }
         public int Wisdom { get; set; }
         public int Charisma { get; set; }
+
+        public User User { get; set; }
+        public bool Best { get; set; }
     }
 }

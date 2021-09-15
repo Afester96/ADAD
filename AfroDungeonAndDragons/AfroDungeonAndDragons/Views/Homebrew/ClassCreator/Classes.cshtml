@@ -12,9 +12,13 @@
         <a asp-controller="ClassCreator" asp-action="Classes">Классы</a>
     </div>
 </div>
-<div class="top_button_body">
-    <a asp-action="CreateClass">Создать класс</a>
-</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="top_button_body">
+        <a asp-action="CreateClass">Создать класс</a>
+        <a asp-action="BestClasses">Лучшие классы</a>
+    </div>
+}
 <div class="all_background_content_row">
     @foreach (var cl in Model)
     {

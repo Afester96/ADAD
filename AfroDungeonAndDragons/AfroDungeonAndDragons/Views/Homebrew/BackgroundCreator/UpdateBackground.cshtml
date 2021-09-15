@@ -53,7 +53,16 @@
         <label asp-for="BackgroundVariantDescription">Варианты предыстории</label>
         <textarea asp-for="BackgroundVariantDescription"></textarea>
     </div>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="form_group">
+            <label asp-for="Best">Лучшая</label>
+            <div class="checkbox_body">
+                <input type="checkbox" asp-for="Best" />
+            </div>
+        </div>
+    }
     <div class="content_button_body">
-        <input type="submit" value="Сохранить изменения"/>
+        <input type="submit" value="Сохранить изменения" />
     </div>
 </form>

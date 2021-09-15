@@ -23,5 +23,8 @@ namespace AfroDungeonAndDragons.Models.CharacterCreator
         public string BackgroundVariantDescription { get; set; }
         public string LanguagesDescription { get; set; }
         public string BackgroundSpecificDescription { get; set; }
+
+        public User User { get; set; }
+        public bool Best { get; set; }
     }
 }

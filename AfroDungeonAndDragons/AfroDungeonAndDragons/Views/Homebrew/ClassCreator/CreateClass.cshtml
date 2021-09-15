@@ -5,7 +5,7 @@
 <form asp-action="CreateClass" asp-controller="ClassCreator">
     <div class="form_group">
         <label asp-for="Name">Название класса</label>
-        <textarea asp-for="Name" ></textarea>
+        <textarea asp-for="Name"></textarea>
         <span asp-validation-for="Name"></span>
     </div>
     <div class="form_group">
@@ -89,7 +89,16 @@
         <label asp-for="VariantDescription">Подклассы</label>
         <textarea asp-for="VariantDescription"></textarea>
     </div>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="form_group">
+            <label asp-for="Best">Лучшая</label>
+            <div class="checkbox_body">
+                <input type="checkbox" asp-for="Best" />
+            </div>
+        </div>
+    }
     <div class="content_button_body">
-        <input type="submit" value="Сохранить класс"/>
+        <input type="submit" value="Сохранить класс" />
     </div>
 </form>

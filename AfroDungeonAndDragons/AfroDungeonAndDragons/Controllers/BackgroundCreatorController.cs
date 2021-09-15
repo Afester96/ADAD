@@ -20,7 +20,26 @@ namespace AfroDungeonAndDragons.Controllers
 
         public async Task<IActionResult> Backgrounds()
         {
-            return View("../Homebrew/BackgroundCreator/Backgrounds", await db.Backgrounds.ToListAsync());
+            if (User.IsInRole("User"))
+            {
+                if (db.Backgrounds.Where(n => n.User.Login == User.Identity.Name).Count() >= 0)
+                {
+                    return View("../Homebrew/BackgroundCreator/Backgrounds", await db.Backgrounds.Where(n => n.User.Login == User.Identity.Name).ToListAsync());
+                }
+                else
+                    return RedirectToAction("BestBackgrounds");
+            }
+            if (User.IsInRole("Admin"))
+            {
+                return View("../Homebrew/BackgroundCreator/Backgrounds", await db.Backgrounds.ToListAsync());
+            }
+            return RedirectToAction("BestBackgrounds");
+        }
+
+        [Authorize(Roles = "Admin, User")]
+        public async Task<IActionResult> BestBackgrounds()
+        {
+            return View("../Homebrew/BackgroundCreator/Backgrounds", await db.Backgrounds.Where(r => r.Best == true).ToListAsync());
         }
 
         [Authorize(Roles = "Admin, User")]
@@ -35,13 +54,14 @@ namespace AfroDungeonAndDragons.Controllers
         {
             if (ModelState.IsValid)
             {
+                background.User = await db.Users.FirstOrDefaultAsync(u => u.Login == User.Identity.Name);
                 db.Backgrounds.Add(background);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Backgrounds");
             }
             else
                 return View("../Homebrew/BackgroundCreator/CreateBackground");
-            
+
         }
         public async Task<IActionResult> AboutBackground(int? id)
         {

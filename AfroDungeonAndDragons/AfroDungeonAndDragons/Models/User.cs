@@ -27,11 +27,5 @@ namespace AfroDungeonAndDragons.Models
 
         public int? RoleId { get; set; }
         public Role Role { get; set; }
-
-        public List<Character> Characters { get; set; }
-        public User()
-        {
-            Characters = new List<Character>();
-        }
     }
 }

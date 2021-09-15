@@ -27,7 +27,17 @@
                         </a>
                     </div>
                     <div class="header_account">
-                        @if (User.Identity.IsAuthenticated)
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                        {
+                            <button class="header_account_dropbtn">@User.Identity.Name</button>
+                            <div class="header_account_dropdown_content">
+                                @Html.ActionLink("Профиль", "", "")
+                                @Html.ActionLink("Аккаунт", "", "")
+                                @Html.ActionLink("Персонажи", "", "")
+                                @Html.ActionLink("Выйти", "Logout", "Account")
+                            </div>
+                        }
+                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <button class="header_account_dropbtn">@User.Identity.Name</button>
                             <div class="header_account_dropdown_content">

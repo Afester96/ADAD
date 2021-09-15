@@ -4,14 +4,16 @@ using AfroDungeonAndDragons.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AfroDungeonAndDragons.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210910132908_roles_added")]
+    partial class roles_added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,9 +52,6 @@ namespace AfroDungeonAndDragons.Migrations
                     b.Property<string>("BackgroundVariantDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Best")
-                        .HasColumnType("bit");
-
                     b.Property<string>("EquipmentDescriptions")
                         .HasColumnType("nvarchar(max)");
 
@@ -85,12 +84,7 @@ namespace AfroDungeonAndDragons.Migrations
                     b.Property<string>("ToolProficienciesDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Backgrounds");
                 });
@@ -108,9 +102,6 @@ namespace AfroDungeonAndDragons.Migrations
 
                     b.Property<int?>("BackgroundId")
                         .HasColumnType("int");
-
-                    b.Property<bool>("Best")
-                        .HasColumnType("bit");
 
                     b.Property<string>("CharacterName")
                         .IsRequired()
@@ -176,9 +167,6 @@ namespace AfroDungeonAndDragons.Migrations
                     b.Property<string>("Armor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Best")
-                        .HasColumnType("bit");
-
                     b.Property<string>("ClassCreationDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -235,9 +223,6 @@ namespace AfroDungeonAndDragons.Migrations
                     b.Property<string>("TypeTitle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("VariantDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -245,8 +230,6 @@ namespace AfroDungeonAndDragons.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Classes");
                 });
@@ -257,9 +240,6 @@ namespace AfroDungeonAndDragons.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("Best")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -321,12 +301,7 @@ namespace AfroDungeonAndDragons.Migrations
                     b.Property<string>("SubraceFeatureDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Races");
                 });
@@ -1454,8 +1429,8 @@ namespace AfroDungeonAndDragons.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("NewsDescription")
                         .HasColumnType("nvarchar(max)");
@@ -1541,15 +1516,6 @@ namespace AfroDungeonAndDragons.Migrations
                         });
                 });
 
-            modelBuilder.Entity("AfroDungeonAndDragons.Models.CharacterCreator.Background", b =>
-                {
-                    b.HasOne("AfroDungeonAndDragons.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("AfroDungeonAndDragons.Models.CharacterCreator.Character", b =>
                 {
                     b.HasOne("AfroDungeonAndDragons.Models.CharacterCreator.Background", "Background")
@@ -1564,8 +1530,8 @@ namespace AfroDungeonAndDragons.Migrations
                         .WithMany()
                         .HasForeignKey("RaceId");
 
-                    b.HasOne("AfroDungeonAndDragons.Models.User", "User")
-                        .WithMany()
+                    b.HasOne("AfroDungeonAndDragons.Models.User", null)
+                        .WithMany("Characters")
                         .HasForeignKey("UserId");
 
                     b.Navigation("Background");
@@ -1573,26 +1539,6 @@ namespace AfroDungeonAndDragons.Migrations
                     b.Navigation("Class");
 
                     b.Navigation("Race");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("AfroDungeonAndDragons.Models.CharacterCreator.Class", b =>
-                {
-                    b.HasOne("AfroDungeonAndDragons.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("AfroDungeonAndDragons.Models.CharacterCreator.Race", b =>
-                {
-                    b.HasOne("AfroDungeonAndDragons.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("AfroDungeonAndDragons.Models.User", b =>
@@ -1607,6 +1553,11 @@ namespace AfroDungeonAndDragons.Migrations
             modelBuilder.Entity("AfroDungeonAndDragons.Models.Role", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("AfroDungeonAndDragons.Models.User", b =>
+                {
+                    b.Navigation("Characters");
                 });
 #pragma warning restore 612, 618
         }

@@ -32,5 +32,8 @@ namespace AfroDungeonAndDragons.Models.CharacterCreator
         public string TypeTitle { get; set; }
         public string TypeDescriprion { get; set; }
         public string VariantDescription { get; set; }
+
+        public User User { get; set; }
+        public bool Best { get; set; }
     }
 }

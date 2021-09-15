@@ -1,12 +1,15 @@
 ﻿using AfroDungeonAndDragons.Models;
 using AfroDungeonAndDragons.Models.MainPageNews;
+using AfroDungeonAndDragons.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,10 +17,12 @@ namespace AfroDungeonAndDragons.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationContext db;
-        public HomeController(ApplicationContext context)
+        private readonly ApplicationContext db;
+        private readonly IWebHostEnvironment webHostEnvironment;
+        public HomeController(ApplicationContext context, IWebHostEnvironment hostEnvironment)
         {
             db = context;
+            webHostEnvironment = hostEnvironment;
         }
 
         public async Task<IActionResult> Index()
@@ -54,16 +59,43 @@ namespace AfroDungeonAndDragons.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<IActionResult> CreateNews(News news)
+        public async Task<IActionResult> CreateNews(NewsViewModel viewNews)
         {
             if (ModelState.IsValid)
             {
+                string uniqueFileName = UploadedFile(viewNews);
+
+                News news = new News
+                {
+                    NewsTitle = viewNews.NewsTitle,
+                    ShortNewsDescription = viewNews.ShortNewsDescription,
+                    NewsDescription = viewNews.NewsDescription,
+                    Image = uniqueFileName,
+                };
+
                 db.News.Add(news);
                 await db.SaveChangesAsync();
                 return RedirectToAction("AllNews");
             }
             else
                 return View();
+        }
+
+        private string UploadedFile(NewsViewModel model)
+        {
+            string uniqueFileName = null;
+
+            if (model.ViewImage != null)
+            {
+                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "news_images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ViewImage.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.ViewImage.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
         }
 
         [Authorize(Roles = "Admin")]

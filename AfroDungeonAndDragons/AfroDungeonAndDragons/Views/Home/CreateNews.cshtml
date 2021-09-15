@@ -1,8 +1,12 @@
-﻿@model AfroDungeonAndDragons.Models.MainPageNews.News
+﻿@model AfroDungeonAndDragons.ViewModels.NewsViewModel
 @{
     ViewBag.Title = "Создание новости";
 }
-<form asp-controller="Home" asp-action="CreateNews" class="form_row">
+<form asp-controller="Home" asp-action="CreateNews" class="form_row" enctype="multipart/form-data">
+    <div class="registration_group">
+        <label asp-for="ViewImage">Картинка для новости</label>
+        <input type="file" asp-for="ViewImage" />
+    </div>
     <div class="registration_group">
         <label asp-for="NewsTitle">Заголовок новости</label>
         <textarea asp-for="NewsTitle"></textarea>
@@ -17,6 +21,6 @@
         <textarea asp-for="NewsDescription"></textarea>
     </div>
     <div class="content_button_body">
-        <input type="submit" value="Сохранить новость"/>
+        <input type="submit" value="Сохранить новость" />
     </div>
 </form>

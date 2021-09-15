@@ -31,5 +31,8 @@ namespace AfroDungeonAndDragons.Models.CharacterCreator
         public string RaceSpeed { get; set; }
         public string SubraceDescription { get; set; }
         public string SubraceFeatureDescription { get; set; }
+
+        public User User { get; set; }
+        public bool Best { get; set; }
     }
 }

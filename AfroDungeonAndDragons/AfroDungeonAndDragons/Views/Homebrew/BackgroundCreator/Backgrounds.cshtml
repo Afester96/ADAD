@@ -12,9 +12,13 @@
         <a asp-controller="BackgroundCreator" asp-action="Backgrounds">Предыстории</a>
     </div>
 </div>
-<div class="top_button_body">
-    <a asp-action="CreateBackground">Создать предысторию</a>
-</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="top_button_body">
+        <a asp-action="CreateBackground">Создать предысторию</a>
+        <a asp-action="BestBackgrounds">Лучшие предыстории</a>
+    </div>
+}
 <div class="all_background_content_row">
     @foreach (var background in Model)
     {

@@ -12,9 +12,13 @@
         <a asp-controller="RaceCreator" asp-action="Races">Расы</a>
     </div>
 </div>
-<div class="top_button_body">
-    <a asp-action="CreateRace">Создать расу</a>
-</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="top_button_body">
+        <a asp-action="CreateRace">Создать расу</a>
+        <a asp-action="BestRaces">Лучшие расы</a>
+    </div>
+}
 <div class="all_background_content_row">
     @foreach (var race in Model)
     {

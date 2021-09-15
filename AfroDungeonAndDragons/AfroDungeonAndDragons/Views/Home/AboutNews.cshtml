@@ -25,9 +25,12 @@
         <div class="content_text">
             @Html.Raw(Model.NewsDescription)
         </div>
-        <div class="content_button_body">
-            <a asp-action="UpdateNews" asp-controller="Home" asp-route-id="@Model.Id">Изменить новость</a>
-            <a asp-action="DeleteNews" asp-controller="Home" asp-route-id="@Model.Id">Удалить новость</a>
-        </div>
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <div class="content_button_body">
+                <a asp-action="UpdateNews" asp-controller="Home" asp-route-id="@Model.Id">Изменить новость</a>
+                <a asp-action="DeleteNews" asp-controller="Home" asp-route-id="@Model.Id">Удалить новость</a>
+            </div>
+        }
     </div>
 </div>

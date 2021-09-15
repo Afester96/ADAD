@@ -12,9 +12,12 @@
         <a asp-controller="Home" asp-action="AllNews">Новости</a>
     </div>
 </div>
-<div class="top_button_body">
-    <a asp-action="CreateNews">Создать новость</a>
-</div>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div class="top_button_body">
+        <a asp-action="CreateNews">Создать новость</a>
+    </div>
+}
 <div class="all_background_content_row">
     @foreach (var news in Model.News)
     {
@@ -28,10 +31,13 @@
             <div class="all_content_body_description">
                 <p>@news.ShortNewsDescription</p>
             </div>
-            <div class="content_button_body">
-                <a asp-action="UpdateNews" asp-controller="Home" asp-route-id="@news.Id">Изменить новость</a>
-                <a asp-action="DeleteNews" asp-controller="Home" asp-route-id="@news.Id">Удалить новость</a>
-            </div>
+            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <div class="content_button_body">
+                    <a asp-action="UpdateNews" asp-controller="Home" asp-route-id="@news.Id">Изменить новость</a>
+                    <a asp-action="DeleteNews" asp-controller="Home" asp-route-id="@news.Id">Удалить новость</a>
+                </div>
+            }
         </div>
     }
     <div class="content_button_body">

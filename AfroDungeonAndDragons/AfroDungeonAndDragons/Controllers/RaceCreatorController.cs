@@ -20,7 +20,26 @@ namespace AfroDungeonAndDragons.Controllers
 
         public async Task<IActionResult> Races()
         {
-            return View("../Homebrew/RaceCreator/Races", await db.Races.ToListAsync());
+            if (User.IsInRole("User"))
+            {
+                if (db.Backgrounds.Where(n => n.User.Login == User.Identity.Name).Count() >= 0)
+                {
+                    return View("../Homebrew/RaceCreator/Races", await db.Races.Where(n => n.User.Login == User.Identity.Name).ToListAsync());
+                }
+                else
+                    return RedirectToAction("BestRaces");
+            }
+            if (User.IsInRole("Admin"))
+            {
+                return View("../Homebrew/RaceCreator/Races", await db.Races.ToListAsync());
+            }
+            return RedirectToAction("BestRaces");
+        }
+
+        [Authorize(Roles = "Admin, User")]
+        public async Task<IActionResult> BestRaces()
+        {
+            return View("../Homebrew/RaceCreator/Races", await db.Races.Where(r => r.Best == true).ToListAsync());
         }
 
         [Authorize(Roles = "Admin, User")]
@@ -35,6 +54,7 @@ namespace AfroDungeonAndDragons.Controllers
         {
             if (ModelState.IsValid)
             {
+                race.User = await db.Users.FirstOrDefaultAsync(u => u.Login == User.Identity.Name);
                 db.Races.Add(race);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Races");
